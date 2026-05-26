@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Saffron & Sage — a modern farm-to-table restaurant serving seasonal dishes crafted from local ingredients. Reserve your table today." />
+  <meta name="theme-color" content="#1a1410" />
+  <title>Saffron &amp; Sage — Farm-to-Table Dining</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== Header / Nav ===== -->
+  <header class="site-header" id="header">
+    <div class="container nav-inner">
+      <a href="#hero" class="brand" aria-label="Saffron and Sage home">
+        <span class="brand-mark">S&amp;S</span>
+        <span class="brand-name">Saffron <em>&amp;</em> Sage</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav-list" id="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#visit">Visit</a></li>
+        </ul>
+      </nav>
+
+      <a href="#reserve" class="btn btn-primary nav-cta">Reserve a Table</a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-list">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <p class="eyebrow reveal">Farm-to-table · Est. 2014</p>
+        <h1 class="hero-title reveal">Seasonal flavor,<br />crafted with care.</h1>
+        <p class="hero-sub reveal">A neighborhood kitchen serving dishes built from what's fresh, local, and in season — paired with a thoughtfully chosen list of natural wines.</p>
+        <div class="hero-actions reveal">
+          <a href="#reserve" class="btn btn-primary btn-lg">Reserve a Table</a>
+          <a href="#menu" class="btn btn-ghost btn-lg">View the Menu</a>
+        </div>
+      </div>
+      <a href="#about" class="scroll-cue" aria-label="Scroll to about section">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section class="section about" id="about">
+      <div class="container about-grid">
+        <div class="about-media reveal">
+          <div class="about-img about-img-1"></div>
+          <div class="about-img about-img-2"></div>
+          <div class="about-badge">
+            <span class="about-badge-num">10+</span>
+            <span class="about-badge-label">Years serving<br />the neighborhood</span>
+          </div>
+        </div>
+        <div class="about-copy reveal">
+          <p class="eyebrow">Our story</p>
+          <h2 class="section-title">Good food starts<br />with good neighbors.</h2>
+          <p>We opened Saffron &amp; Sage with a simple belief: the best meals come from the best ingredients, grown by people we know. Every morning we build our menu around what arrives from nearby farms — so no two visits are ever quite the same.</p>
+          <p>Our kitchen keeps things honest and seasonal. Our dining room keeps things warm. Whether it's a quiet dinner for two or a long table of friends, you're family while you're here.</p>
+          <ul class="about-points">
+            <li><strong>Local sourcing</strong> from farms within 50 miles</li>
+            <li><strong>Seasonal menu</strong> that changes with the harvest</li>
+            <li><strong>Natural wines</strong> &amp; house-made cocktails</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Menu ===== -->
+    <section class="section menu" id="menu">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">What we're cooking</p>
+          <h2 class="section-title center">The Menu</h2>
+          <p class="section-lead">A snapshot of the season. Ask your server about today's specials and pairings.</p>
+        </div>
+
+        <div class="menu-tabs reveal" role="tablist" aria-label="Menu categories">
+          <button class="menu-tab is-active" role="tab" aria-selected="true" data-tab="starters">Starters</button>
+          <button class="menu-tab" role="tab" aria-selected="false" data-tab="mains">Mains</button>
+          <button class="menu-tab" role="tab" aria-selected="false" data-tab="desserts">Desserts</button>
+          <button class="menu-tab" role="tab" aria-selected="false" data-tab="drinks">Drinks</button>
+        </div>
+
+        <div class="menu-panels">
+          <!-- Starters -->
+          <div class="menu-panel is-active" data-panel="starters">
+            <ul class="menu-items">
+              <li class="menu-item">
+                <div class="menu-item-head"><h3>Heirloom Tomato &amp; Burrata</h3><span class="dots" aria-hidden="true"></span><span class="price">14</span></div>
+                <p class="menu-item-desc">Basil oil, aged balsamic, grilled sourdough.</p>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item-head"><h3>Charred Shishito Peppers</h3><span class="dots" aria-hidden="true"></span><span class="price">11</span></div>
+                <p class="menu-item-desc">Sea salt, lemon, smoked aioli.</p>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item-head"><h3>Roasted Beet Salad</h3><span class="dots" aria-hidden="true"></span><span class="price">13</span></div>
+                <p class="menu-item-desc">Whipped goat cheese, candied walnuts, citrus.</p>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item-head"><h3>Soup of the Day</h3><span class="dots" aria-hidden="true"></span><span class="price">9</span></div>
+                <p class="menu-item-desc">Ask your server — always seasonal, always fresh.</p>
+              </li>
+            </ul>
+          </div>
+          <!-- Mains -->
+          <div class="menu-panel" data-panel="mains" hidden>
+            <ul class="menu-items">
+              <li class="menu-item">
+                <div class="menu-item-head"><h3>Pan-Seared Halibut</h3><span class="dots" aria-hidden="true"></span><span class="price">29</span></div>
+                <p class="menu-item-desc">Spring pea risotto, charred lemon, herb butter.</p>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item-head"><h3>Braised Short Rib</h3><span class="dots" aria-hidden="true"></span><span class="price">32</span></div>
+                <p class="menu-item-desc">Roasted root vegetables, red wine jus, gremolata.</p>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item-head"><h3>Wild Mushroom Tagliatelle</h3><span class="dots" aria-hidden="true"></span><span class="price">24</span></div>
+                <p class="menu-item-desc">House pasta, parmesan, truffle, fresh thyme. <em>(v)</em></p>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item-head"><h3>Wood-Grilled Chicken</h3><span class="dots" aria-hidden="true"></span><span class="price">26</span></div>
+                <p class="menu-item-desc">Fingerling potatoes, charred greens, pan jus.</p>
+              </li>
+            </ul>
+          </div>
+          <!-- Desserts -->
+          <div class="menu-panel" data-panel="desserts" hidden>
+            <ul class="menu-items">
+              <li class="menu-item">
+                <div class="menu-item-head"><h3>Dark Chocolate Tart</h3><span class="dots" aria-hidden="true"></span><span class="price">11</span></div>
+                <p class="menu-item-desc">Sea salt, olive oil, crème fraîche.</p>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item-head"><h3>Seasonal Fruit Galette</h3><span class="dots" aria-hidden="true"></span><span class="price">10</span></div>
+                <p class="menu-item-desc">Buttery crust, vanilla bean ice cream.</p>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item-head"><h3>Olive Oil Cake</h3><span class="dots" aria-hidden="true"></span><span class="price">9</span></div>
+                <p class="menu-item-desc">Citrus glaze, mascarpone, toasted pistachio.</p>
+              </li>
+            </ul>
+          </div>
+          <!-- Drinks -->
+          <div class="menu-panel" data-panel="drinks" hidden>
+            <ul class="menu-items">
+              <li class="menu-item">
+                <div class="menu-item-head"><h3>Garden Spritz</h3><span class="dots" aria-hidden="true"></span><span class="price">13</span></div>
+                <p class="menu-item-desc">Elderflower, prosecco, cucumber, mint.</p>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item-head"><h3>Smoked Old Fashioned</h3><span class="dots" aria-hidden="true"></span><span class="price">15</span></div>
+                <p class="menu-item-desc">Bourbon, demerara, applewood smoke.</p>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item-head"><h3>Natural Wine</h3><span class="dots" aria-hidden="true"></span><span class="price">12+</span></div>
+                <p class="menu-item-desc">Rotating list by the glass — ask for today's pour.</p>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item-head"><h3>House Lemonade</h3><span class="dots" aria-hidden="true"></span><span class="price">6</span></div>
+                <p class="menu-item-desc">Fresh-pressed, lightly sweet. <em>(n/a)</em></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Gallery ===== -->
+    <section class="section gallery" id="gallery">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">A look inside</p>
+          <h2 class="section-title center">Gallery</h2>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-item g1 reveal"></figure>
+          <figure class="gallery-item g2 reveal"></figure>
+          <figure class="gallery-item g3 reveal"></figure>
+          <figure class="gallery-item g4 reveal"></figure>
+          <figure class="gallery-item g5 reveal"></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Reserve ===== -->
+    <section class="section reserve" id="reserve">
+      <div class="container reserve-grid">
+        <div class="reserve-copy reveal">
+          <p class="eyebrow">Join us</p>
+          <h2 class="section-title">Reserve your table.</h2>
+          <p>We hold a limited number of tables each evening to keep the room comfortable. Book ahead — for parties larger than 6, give us a call and we'll take care of you.</p>
+          <p class="reserve-phone">Prefer to call? <a href="tel:+15551234567">(555) 123-4567</a></p>
+        </div>
+
+        <form class="reserve-form reveal" id="reserve-form" novalidate>
+          <div class="field">
+            <label for="r-name">Name</label>
+            <input type="text" id="r-name" name="name" autocomplete="name" required />
+            <span class="field-error" data-for="r-name"></span>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="r-date">Date</label>
+              <input type="date" id="r-date" name="date" required />
+              <span class="field-error" data-for="r-date"></span>
+            </div>
+            <div class="field">
+              <label for="r-time">Time</label>
+              <input type="time" id="r-time" name="time" required />
+              <span class="field-error" data-for="r-time"></span>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="r-guests">Guests</label>
+              <select id="r-guests" name="guests" required>
+                <option value="">Select…</option>
+                <option>1</option><option>2</option><option>3</option>
+                <option>4</option><option>5</option><option>6</option>
+              </select>
+              <span class="field-error" data-for="r-guests"></span>
+            </div>
+            <div class="field">
+              <label for="r-phone">Phone</label>
+              <input type="tel" id="r-phone" name="phone" autocomplete="tel" required />
+              <span class="field-error" data-for="r-phone"></span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="r-notes">Notes <span class="optional">(optional)</span></label>
+            <textarea id="r-notes" name="notes" rows="3" placeholder="Allergies, occasion, seating preference…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Request Reservation</button>
+          <p class="form-success" id="form-success" role="status" hidden>Thanks! We've received your request and will confirm by text shortly.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== Visit / Hours ===== -->
+    <section class="section visit" id="visit">
+      <div class="container visit-grid">
+        <div class="visit-card reveal">
+          <h3>Hours</h3>
+          <ul class="hours">
+            <li><span>Mon — Tue</span><span class="closed">Closed</span></li>
+            <li><span>Wed — Thu</span><span>5:00 – 10:00 PM</span></li>
+            <li><span>Fri — Sat</span><span>5:00 – 11:00 PM</span></li>
+            <li><span>Sunday</span><span>4:00 – 9:00 PM</span></li>
+          </ul>
+        </div>
+        <div class="visit-card reveal">
+          <h3>Find Us</h3>
+          <address>
+            128 Greenmarket Lane<br />
+            Riverside District<br />
+            Portland, OR 97204
+          </address>
+          <a href="https://maps.google.com" target="_blank" rel="noopener" class="link-arrow">Get directions →</a>
+        </div>
+        <div class="visit-card reveal">
+          <h3>Contact</h3>
+          <p>
+            <a href="tel:+15551234567">(555) 123-4567</a><br />
+            <a href="mailto:hello@saffronsage.com">hello@saffronsage.com</a>
+          </p>
+          <div class="socials" aria-label="Social media">
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="Facebook">Facebook</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="brand brand-footer">
+        <span class="brand-name">Saffron <em>&amp;</em> Sage</span>
+      </div>
+      <p class="footer-tag">Seasonal, local, made with care.</p>
+      <p class="footer-copy">© <span id="year"></span> Saffron &amp; Sage. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
