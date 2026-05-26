@@ -3,38 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Saffron & Sage — a modern farm-to-table restaurant serving seasonal dishes crafted from local ingredients. Reserve your table today." />
-  <meta name="theme-color" content="#1a1410" />
-  <title>Saffron &amp; Sage — Farm-to-Table Dining</title>
+  <meta name="description" content="Eagle 5 Golf — Columbia's premier indoor golf experience. GolfZone simulators with moving floors, craft drinks, BYOF, and 8+ professional bays in Howard County, MD." />
+  <meta name="theme-color" content="#1A3A2A" />
+  <title>Eagle 5 Golf — Columbia's Premier Indoor Golf Experience</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <!-- Skip link for accessibility -->
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ===== Header / Nav ===== -->
+  <!-- ===== Header ===== -->
   <header class="site-header" id="header">
     <div class="container nav-inner">
-      <a href="#hero" class="brand" aria-label="Saffron and Sage home">
-        <span class="brand-mark">S&amp;S</span>
-        <span class="brand-name">Saffron <em>&amp;</em> Sage</span>
+      <a href="#home" class="brand" aria-label="Eagle 5 Golf home">
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18V5l9-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="21" cy="16" r="3"/></svg>
+        </span>
+        <span class="brand-name">Eagle 5 Golf</span>
       </a>
 
       <nav class="nav" aria-label="Primary">
         <ul class="nav-list" id="nav-list">
-          <li><a href="#about">About</a></li>
-          <li><a href="#menu">Menu</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#visit">Visit</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#facility">Facility Overview</a></li>
+          <li><a href="#booking">Booking</a></li>
+          <li><a href="#reviews">Google Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
 
-      <a href="#reserve" class="btn btn-primary nav-cta">Reserve a Table</a>
+      <a href="#booking" class="btn btn-gold nav-cta">Book Now</a>
 
       <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-list">
         <span></span><span></span><span></span>
@@ -44,251 +46,197 @@
 
   <main id="main">
     <!-- ===== Hero ===== -->
-    <section class="hero" id="hero">
+    <section class="hero" id="home">
       <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-scrim" aria-hidden="true"></div>
       <div class="container hero-content">
-        <p class="eyebrow reveal">Farm-to-table · Est. 2014</p>
-        <h1 class="hero-title reveal">Seasonal flavor,<br />crafted with care.</h1>
-        <p class="hero-sub reveal">A neighborhood kitchen serving dishes built from what's fresh, local, and in season — paired with a thoughtfully chosen list of natural wines.</p>
+        <p class="hero-kicker reveal">Eagle 5 Golf</p>
+        <h1 class="hero-title reveal">Columbia's Premier<br />Indoor Golf Experience</h1>
+        <p class="hero-sub reveal">GolfZone simulators with real moving floors, craft drinks, and a relaxed clubhouse atmosphere — open year-round in Howard County, MD.</p>
         <div class="hero-actions reveal">
-          <a href="#reserve" class="btn btn-primary btn-lg">Reserve a Table</a>
-          <a href="#menu" class="btn btn-ghost btn-lg">View the Menu</a>
+          <a href="#booking" class="btn btn-gold btn-lg">Book a Bay</a>
+          <a href="#facility" class="btn btn-outline-light btn-lg">Learn More</a>
         </div>
       </div>
-      <a href="#about" class="scroll-cue" aria-label="Scroll to about section">
-        <span></span>
-      </a>
+      <a href="#features" class="scroll-cue" aria-label="Scroll down"><span></span></a>
     </section>
 
-    <!-- ===== About ===== -->
-    <section class="section about" id="about">
-      <div class="container about-grid">
-        <div class="about-media reveal">
-          <div class="about-img about-img-1"></div>
-          <div class="about-img about-img-2"></div>
-          <div class="about-badge">
-            <span class="about-badge-num" data-count="10" data-suffix="+">0+</span>
-            <span class="about-badge-label">Years serving<br />the neighborhood</span>
+    <!-- ===== Feature cards ===== -->
+    <section class="section features" id="features">
+      <div class="container">
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+            </span>
+            <h3>Simulator Technology</h3>
+            <p>Experience unmatched accuracy with GolfZone technology, featuring real-time swing analysis and moving floors that recreate true course conditions.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v6a3 3 0 0 0 6 0V2M9 8v14M17 2c-1.5 1-2 3-2 5v4h3V2"/></svg>
+            </span>
+            <h3>Food &amp; Drinks</h3>
+            <p>Enjoy our selection of craft beers and snacks. We feature a unique BYOF policy — bring your own favorite food or order in from local restaurants.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            </span>
+            <h3>Columbia, MD</h3>
+            <p>Prime central location in Columbia. The perfect spot for after-work practice, weekend outings with friends, or private corporate events.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== The Modern Clubhouse ===== -->
+    <section class="section clubhouse" id="facility">
+      <div class="container clubhouse-grid">
+        <div class="clubhouse-media reveal">
+          <div class="clubhouse-img" role="img" aria-label="Eagle 5 Golf simulator bays"></div>
+          <div class="bays-badge">
+            <span class="bays-num" data-count="8" data-suffix="+">0+</span>
+            <span class="bays-label">Bays<br /><em>Professional Grade</em></span>
           </div>
         </div>
-        <div class="about-copy reveal">
-          <p class="eyebrow">Our story</p>
-          <h2 class="section-title">Good food starts<br />with good neighbors.</h2>
-          <p>We opened Saffron &amp; Sage with a simple belief: the best meals come from the best ingredients, grown by people we know. Every morning we build our menu around what arrives from nearby farms — so no two visits are ever quite the same.</p>
-          <p>Our kitchen keeps things honest and seasonal. Our dining room keeps things warm. Whether it's a quiet dinner for two or a long table of friends, you're family while you're here.</p>
-          <ul class="about-points">
-            <li><strong>Local sourcing</strong> from farms within 50 miles</li>
-            <li><strong>Seasonal menu</strong> that changes with the harvest</li>
-            <li><strong>Natural wines</strong> &amp; house-made cocktails</li>
+        <div class="clubhouse-copy reveal">
+          <p class="eyebrow">The Modern Clubhouse</p>
+          <h2 class="section-title light">More than a place<br />to practice.</h2>
+          <p class="lead-light">Eagle 5 Golf isn't just a place to practice — it's Columbia's most advanced indoor golf social hub. We've redefined the simulator experience with industry-leading technology and a relaxed, upscale atmosphere.</p>
+          <ul class="clubhouse-points">
+            <li>
+              <h4>GolfZone Technology</h4>
+              <p>Our simulators feature moving floors that mimic real course undulations, plus high-speed sensors for precision feedback on every swing.</p>
+            </li>
+            <li>
+              <h4>Ultimate Social Hub</h4>
+              <p>Relax with complimentary popcorn and take advantage of our BYOF policy, or order in from your favorite local restaurants.</p>
+            </li>
           </ul>
+          <blockquote class="clubhouse-quote">
+            <p>"The moving floor tech is a game changer for short game practice indoors."</p>
+            <cite>— Local MD Golfer</cite>
+          </blockquote>
         </div>
       </div>
     </section>
 
-    <!-- ===== Menu ===== -->
-    <section class="section menu" id="menu">
+    <!-- ===== Booking / Tee Times / Visit ===== -->
+    <section class="section booking" id="booking">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">What we're cooking</p>
-          <h2 class="section-title center">The Menu</h2>
-          <p class="section-lead">A snapshot of the season. Ask your server about today's specials and pairings.</p>
+          <p class="eyebrow center">Reserve Your Time</p>
+          <h2 class="section-title center">Book Your Bay</h2>
+          <p class="section-lead">Pick a time that works for you. Have a bigger group or a corporate event? Give us a call and we'll set it up.</p>
         </div>
 
-        <div class="menu-tabs reveal" role="tablist" aria-label="Menu categories">
-          <button class="menu-tab is-active" role="tab" aria-selected="true" data-tab="starters">Starters</button>
-          <button class="menu-tab" role="tab" aria-selected="false" data-tab="mains">Mains</button>
-          <button class="menu-tab" role="tab" aria-selected="false" data-tab="desserts">Desserts</button>
-          <button class="menu-tab" role="tab" aria-selected="false" data-tab="drinks">Drinks</button>
-        </div>
+        <div class="booking-grid">
+          <!-- Booking form -->
+          <form class="booking-form reveal" id="booking-form" novalidate>
+            <div class="field">
+              <label for="b-name">Name</label>
+              <input type="text" id="b-name" name="name" autocomplete="name" required />
+              <span class="field-error" data-for="b-name"></span>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="b-date">Date</label>
+                <input type="date" id="b-date" name="date" required />
+                <span class="field-error" data-for="b-date"></span>
+              </div>
+              <div class="field">
+                <label for="b-time">Time</label>
+                <input type="time" id="b-time" name="time" required />
+                <span class="field-error" data-for="b-time"></span>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="b-players">Players</label>
+                <select id="b-players" name="players" required>
+                  <option value="">Select…</option>
+                  <option>1</option><option>2</option><option>3</option>
+                  <option>4</option><option>5</option><option>6</option>
+                </select>
+                <span class="field-error" data-for="b-players"></span>
+              </div>
+              <div class="field">
+                <label for="b-duration">Bay duration</label>
+                <select id="b-duration" name="duration" required>
+                  <option value="">Select…</option>
+                  <option>1 hour</option>
+                  <option>2 hours</option>
+                  <option>3 hours</option>
+                  <option>Half day</option>
+                </select>
+                <span class="field-error" data-for="b-duration"></span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="b-phone">Phone</label>
+              <input type="tel" id="b-phone" name="phone" autocomplete="tel" required />
+              <span class="field-error" data-for="b-phone"></span>
+            </div>
+            <button type="submit" class="btn btn-gold btn-lg btn-block">Request Booking</button>
+            <p class="form-success" id="form-success" role="status" hidden>Thanks! We've received your booking request and will confirm shortly.</p>
+          </form>
 
-        <div class="menu-panels">
-          <!-- Starters -->
-          <div class="menu-panel is-active" data-panel="starters">
-            <ul class="menu-items">
-              <li class="menu-item">
-                <div class="menu-item-head"><h3>Heirloom Tomato &amp; Burrata</h3><span class="dots" aria-hidden="true"></span><span class="price">14</span></div>
-                <p class="menu-item-desc">Basil oil, aged balsamic, grilled sourdough.</p>
-              </li>
-              <li class="menu-item">
-                <div class="menu-item-head"><h3>Charred Shishito Peppers</h3><span class="dots" aria-hidden="true"></span><span class="price">11</span></div>
-                <p class="menu-item-desc">Sea salt, lemon, smoked aioli.</p>
-              </li>
-              <li class="menu-item">
-                <div class="menu-item-head"><h3>Roasted Beet Salad</h3><span class="dots" aria-hidden="true"></span><span class="price">13</span></div>
-                <p class="menu-item-desc">Whipped goat cheese, candied walnuts, citrus.</p>
-              </li>
-              <li class="menu-item">
-                <div class="menu-item-head"><h3>Soup of the Day</h3><span class="dots" aria-hidden="true"></span><span class="price">9</span></div>
-                <p class="menu-item-desc">Ask your server — always seasonal, always fresh.</p>
-              </li>
-            </ul>
-          </div>
-          <!-- Mains -->
-          <div class="menu-panel" data-panel="mains" hidden>
-            <ul class="menu-items">
-              <li class="menu-item">
-                <div class="menu-item-head"><h3>Pan-Seared Halibut</h3><span class="dots" aria-hidden="true"></span><span class="price">29</span></div>
-                <p class="menu-item-desc">Spring pea risotto, charred lemon, herb butter.</p>
-              </li>
-              <li class="menu-item">
-                <div class="menu-item-head"><h3>Braised Short Rib</h3><span class="dots" aria-hidden="true"></span><span class="price">32</span></div>
-                <p class="menu-item-desc">Roasted root vegetables, red wine jus, gremolata.</p>
-              </li>
-              <li class="menu-item">
-                <div class="menu-item-head"><h3>Wild Mushroom Tagliatelle</h3><span class="dots" aria-hidden="true"></span><span class="price">24</span></div>
-                <p class="menu-item-desc">House pasta, parmesan, truffle, fresh thyme. <em>(v)</em></p>
-              </li>
-              <li class="menu-item">
-                <div class="menu-item-head"><h3>Wood-Grilled Chicken</h3><span class="dots" aria-hidden="true"></span><span class="price">26</span></div>
-                <p class="menu-item-desc">Fingerling potatoes, charred greens, pan jus.</p>
-              </li>
-            </ul>
-          </div>
-          <!-- Desserts -->
-          <div class="menu-panel" data-panel="desserts" hidden>
-            <ul class="menu-items">
-              <li class="menu-item">
-                <div class="menu-item-head"><h3>Dark Chocolate Tart</h3><span class="dots" aria-hidden="true"></span><span class="price">11</span></div>
-                <p class="menu-item-desc">Sea salt, olive oil, crème fraîche.</p>
-              </li>
-              <li class="menu-item">
-                <div class="menu-item-head"><h3>Seasonal Fruit Galette</h3><span class="dots" aria-hidden="true"></span><span class="price">10</span></div>
-                <p class="menu-item-desc">Buttery crust, vanilla bean ice cream.</p>
-              </li>
-              <li class="menu-item">
-                <div class="menu-item-head"><h3>Olive Oil Cake</h3><span class="dots" aria-hidden="true"></span><span class="price">9</span></div>
-                <p class="menu-item-desc">Citrus glaze, mascarpone, toasted pistachio.</p>
-              </li>
-            </ul>
-          </div>
-          <!-- Drinks -->
-          <div class="menu-panel" data-panel="drinks" hidden>
-            <ul class="menu-items">
-              <li class="menu-item">
-                <div class="menu-item-head"><h3>Garden Spritz</h3><span class="dots" aria-hidden="true"></span><span class="price">13</span></div>
-                <p class="menu-item-desc">Elderflower, prosecco, cucumber, mint.</p>
-              </li>
-              <li class="menu-item">
-                <div class="menu-item-head"><h3>Smoked Old Fashioned</h3><span class="dots" aria-hidden="true"></span><span class="price">15</span></div>
-                <p class="menu-item-desc">Bourbon, demerara, applewood smoke.</p>
-              </li>
-              <li class="menu-item">
-                <div class="menu-item-head"><h3>Natural Wine</h3><span class="dots" aria-hidden="true"></span><span class="price">12+</span></div>
-                <p class="menu-item-desc">Rotating list by the glass — ask for today's pour.</p>
-              </li>
-              <li class="menu-item">
-                <div class="menu-item-head"><h3>House Lemonade</h3><span class="dots" aria-hidden="true"></span><span class="price">6</span></div>
-                <p class="menu-item-desc">Fresh-pressed, lightly sweet. <em>(n/a)</em></p>
-              </li>
-            </ul>
+          <!-- Tee times + visit -->
+          <div class="booking-side">
+            <div class="tee-card reveal">
+              <h3>Tee Times</h3>
+              <ul class="hours">
+                <li><span>Monday</span><span>10am – 7pm</span></li>
+                <li><span>Tue – Fri</span><span>10am – 10pm</span></li>
+                <li><span>Saturday</span><span>10am – 11pm</span></li>
+                <li><span>Sunday</span><span>10am – 10pm</span></li>
+              </ul>
+              <p class="tee-note">Recommended: book 24 hours in advance for weekends.</p>
+            </div>
+            <div class="visit-card reveal" id="contact">
+              <h3>Visit Us</h3>
+              <p class="visit-place">Columbia, Maryland</p>
+              <address>
+                Howard County<br />
+                Columbia, MD 21044<br />
+                <a href="tel:+14105550150">(410) 555-0150</a>
+              </address>
+              <a href="https://maps.google.com/?q=Columbia+Maryland" target="_blank" rel="noopener" class="btn btn-outline-light">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                Get Directions
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== Gallery ===== -->
-    <section class="section gallery" id="gallery">
+    <!-- ===== Reviews ===== -->
+    <section class="section reviews" id="reviews">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">A look inside</p>
-          <h2 class="section-title center">Gallery</h2>
-        </div>
-        <div class="gallery-grid">
-          <figure class="gallery-item g1 reveal"></figure>
-          <figure class="gallery-item g2 reveal"></figure>
-          <figure class="gallery-item g3 reveal"></figure>
-          <figure class="gallery-item g4 reveal"></figure>
-          <figure class="gallery-item g5 reveal"></figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Reserve ===== -->
-    <section class="section reserve" id="reserve">
-      <div class="container reserve-grid">
-        <div class="reserve-copy reveal">
-          <p class="eyebrow">Join us</p>
-          <h2 class="section-title">Reserve your table.</h2>
-          <p>We hold a limited number of tables each evening to keep the room comfortable. Book ahead — for parties larger than 6, give us a call and we'll take care of you.</p>
-          <p class="reserve-phone">Prefer to call? <a href="tel:+15551234567">(555) 123-4567</a></p>
-        </div>
-
-        <form class="reserve-form reveal" id="reserve-form" novalidate>
-          <div class="field">
-            <label for="r-name">Name</label>
-            <input type="text" id="r-name" name="name" autocomplete="name" required />
-            <span class="field-error" data-for="r-name"></span>
+          <h2 class="section-title center">What Our Golfers Say</h2>
+          <div class="stars stars-lg" aria-label="5 out of 5 stars">
+            <span></span><span></span><span></span><span></span><span></span>
           </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="r-date">Date</label>
-              <input type="date" id="r-date" name="date" required />
-              <span class="field-error" data-for="r-date"></span>
-            </div>
-            <div class="field">
-              <label for="r-time">Time</label>
-              <input type="time" id="r-time" name="time" required />
-              <span class="field-error" data-for="r-time"></span>
-            </div>
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="r-guests">Guests</label>
-              <select id="r-guests" name="guests" required>
-                <option value="">Select…</option>
-                <option>1</option><option>2</option><option>3</option>
-                <option>4</option><option>5</option><option>6</option>
-              </select>
-              <span class="field-error" data-for="r-guests"></span>
-            </div>
-            <div class="field">
-              <label for="r-phone">Phone</label>
-              <input type="tel" id="r-phone" name="phone" autocomplete="tel" required />
-              <span class="field-error" data-for="r-phone"></span>
-            </div>
-          </div>
-          <div class="field">
-            <label for="r-notes">Notes <span class="optional">(optional)</span></label>
-            <textarea id="r-notes" name="notes" rows="3" placeholder="Allergies, occasion, seating preference…"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-lg btn-block">Request Reservation</button>
-          <p class="form-success" id="form-success" role="status" hidden>Thanks! We've received your request and will confirm by text shortly.</p>
-        </form>
-      </div>
-    </section>
-
-    <!-- ===== Visit / Hours ===== -->
-    <section class="section visit" id="visit">
-      <div class="container visit-grid">
-        <div class="visit-card reveal">
-          <h3>Hours</h3>
-          <ul class="hours">
-            <li><span>Mon — Tue</span><span class="closed">Closed</span></li>
-            <li><span>Wed — Thu</span><span>5:00 – 10:00 PM</span></li>
-            <li><span>Fri — Sat</span><span>5:00 – 11:00 PM</span></li>
-            <li><span>Sunday</span><span>4:00 – 9:00 PM</span></li>
-          </ul>
         </div>
-        <div class="visit-card reveal">
-          <h3>Find Us</h3>
-          <address>
-            128 Greenmarket Lane<br />
-            Riverside District<br />
-            Portland, OR 97204
-          </address>
-          <a href="https://maps.google.com" target="_blank" rel="noopener" class="link-arrow">Get directions →</a>
-        </div>
-        <div class="visit-card reveal">
-          <h3>Contact</h3>
-          <p>
-            <a href="tel:+15551234567">(555) 123-4567</a><br />
-            <a href="mailto:hello@saffronsage.com">hello@saffronsage.com</a>
-          </p>
-          <div class="socials" aria-label="Social media">
-            <a href="#" aria-label="Instagram">Instagram</a>
-            <a href="#" aria-label="Facebook">Facebook</a>
-          </div>
+        <div class="review-grid">
+          <article class="review-card reveal">
+            <div class="stars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+            <p>"The best indoor golf facility in the area. The GolfZone simulators are significantly more accurate than others I've tried. Highly recommend!"</p>
+            <div class="reviewer"><span class="avatar">JS</span><span class="reviewer-name">James S.</span></div>
+          </article>
+          <article class="review-card reveal">
+            <div class="stars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+            <p>"Love the vibe here. Being able to bring our own food while enjoying their beers makes for a perfect Friday night out with friends."</p>
+            <div class="reviewer"><span class="avatar">ML</span><span class="reviewer-name">Michelle L.</span></div>
+          </article>
+          <article class="review-card reveal">
+            <div class="stars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+            <p>"Incredible tech. The moving floor really helps practice those difficult uneven lies. The staff is also super helpful and friendly."</p>
+            <div class="reviewer"><span class="avatar">RT</span><span class="reviewer-name">Robert T.</span></div>
+          </article>
         </div>
       </div>
     </section>
@@ -296,19 +244,32 @@
 
   <!-- ===== Back to top ===== -->
   <button class="to-top" id="to-top" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M12 19V5M5 12l7-7 7 7" />
-    </svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
 
   <!-- ===== Footer ===== -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="brand brand-footer">
-        <span class="brand-name">Saffron <em>&amp;</em> Sage</span>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand-name footer-logo">Eagle 5 Golf</span>
+        <p class="footer-tag">Elevating the indoor golf experience in Howard County with precision technology and premium hospitality.</p>
       </div>
-      <p class="footer-tag">Seasonal, local, made with care.</p>
-      <p class="footer-copy">© <span id="year"></span> Saffron &amp; Sage. All rights reserved.</p>
+      <div class="footer-meta">
+        <nav class="footer-links" aria-label="Footer">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </nav>
+        <p class="footer-loc"><strong>Location:</strong> Columbia, MD</p>
+        <p class="footer-copy">© <span id="year"></span> Eagle 5 Golf. All rights reserved.</p>
+        <div class="footer-social" aria-label="Social">
+          <a href="#" aria-label="Share">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
+          </a>
+          <a href="mailto:hello@eagle5golf.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
 

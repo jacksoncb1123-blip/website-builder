@@ -170,8 +170,8 @@
     }, { passive: true });
   }
 
-  /* ---- Reservation form validation ---- */
-  var form = document.getElementById("reserve-form");
+  /* ---- Booking form validation ---- */
+  var form = document.getElementById("booking-form");
   if (!form) return;
 
   var success = document.getElementById("form-success");
@@ -185,7 +185,8 @@
       return picked >= today || "Please choose today or a future date.";
     },
     time: function (v) { return !!v || "Please pick a time."; },
-    guests: function (v) { return !!v || "Select party size."; },
+    players: function (v) { return !!v || "Select number of players."; },
+    duration: function (v) { return !!v || "Select a bay duration."; },
     phone: function (v) {
       var digits = v.replace(/\D/g, "");
       return digits.length >= 7 || "Enter a valid phone number.";
