@@ -64,12 +64,21 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 
 /* ---------- Buttons ---------- */
 .btn {
+  position: relative; overflow: hidden;
   display: inline-flex; align-items: center; justify-content: center;
   gap: .5em; padding: 13px 26px; border-radius: 999px;
   font-weight: 600; font-size: .95rem; letter-spacing: .01em;
   transition: transform .25s var(--ease), box-shadow .25s var(--ease), background-color .25s var(--ease), color .25s var(--ease);
   will-change: transform;
+  -webkit-tap-highlight-color: transparent;
 }
+/* Ripple ink that radiates from the click point */
+.btn .ripple {
+  position: absolute; border-radius: 50%; transform: scale(0);
+  background: currentColor; opacity: .35; pointer-events: none;
+  animation: ripple .6s var(--ease) forwards;
+}
+@keyframes ripple { to { transform: scale(2.6); opacity: 0; } }
 .btn-lg { padding: 16px 34px; font-size: 1rem; }
 .btn-block { width: 100%; }
 .btn-primary {
@@ -329,6 +338,29 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
 .reveal.is-visible { opacity: 1; transform: none; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* ---------- Scroll-spy active nav link ---------- */
+.nav-list a.active::after { width: 100%; }
+.nav-list a.active { color: var(--gold-deep); }
+.site-header:not(.scrolled) .nav-list a.active { color: #fff; }
+
+/* ---------- Back-to-top ---------- */
+.to-top {
+  position: fixed; right: 24px; bottom: 24px; z-index: 90;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--ink); color: var(--bg);
+  display: grid; place-items: center; font-size: 1.1rem;
+  box-shadow: var(--shadow-md);
+  opacity: 0; visibility: hidden; transform: translateY(16px) scale(.85);
+  transition: opacity .35s var(--ease), transform .35s var(--ease), background-color .25s var(--ease), visibility .35s;
+}
+.to-top.show { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+.to-top:hover { background: var(--gold-deep); transform: translateY(-3px) scale(1.05); }
+.to-top:active { transform: translateY(0) scale(.96); }
+.to-top svg { width: 20px; height: 20px; }
+
+/* Hero parallax target */
+.hero-content { will-change: transform; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {

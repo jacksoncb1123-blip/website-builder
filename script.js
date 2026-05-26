@@ -4,6 +4,9 @@
 (function () {
   "use strict";
 
+  var reduceMotion = window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   /* ---- Footer year ---- */
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -70,6 +73,101 @@
     reveals.forEach(function (el) { io.observe(el); });
   } else {
     reveals.forEach(function (el) { el.classList.add("is-visible"); });
+  }
+
+  /* ---- Button ripple ---- */
+  document.querySelectorAll(".btn").forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      if (reduceMotion) return;
+      var rect = btn.getBoundingClientRect();
+      var size = Math.max(rect.width, rect.height);
+      var ink = document.createElement("span");
+      ink.className = "ripple";
+      ink.style.width = ink.style.height = size + "px";
+      ink.style.left = (e.clientX - rect.left - size / 2) + "px";
+      ink.style.top = (e.clientY - rect.top - size / 2) + "px";
+      btn.appendChild(ink);
+      ink.addEventListener("animationend", function () { ink.remove(); });
+    });
+  });
+
+  /* ---- Scroll-spy: highlight nav link for the section in view ---- */
+  var spyLinks = Array.prototype.slice.call(
+    document.querySelectorAll('.nav-list a[href^="#"]')
+  );
+  var spyTargets = spyLinks
+    .map(function (a) { return document.querySelector(a.getAttribute("href")); })
+    .filter(Boolean);
+
+  if ("IntersectionObserver" in window && spyTargets.length) {
+    var setActive = function (id) {
+      spyLinks.forEach(function (a) {
+        a.classList.toggle("active", a.getAttribute("href") === "#" + id);
+      });
+    };
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+    spyTargets.forEach(function (t) { spy.observe(t); });
+  }
+
+  /* ---- Back to top ---- */
+  var toTop = document.getElementById("to-top");
+  if (toTop) {
+    var toggleTop = function () {
+      toTop.classList.toggle("show", window.scrollY > 600);
+    };
+    toggleTop();
+    window.addEventListener("scroll", toggleTop, { passive: true });
+    toTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    });
+  }
+
+  /* ---- Count-up stat (runs once when visible) ---- */
+  var counter = document.querySelector("[data-count]");
+  if (counter && "IntersectionObserver" in window) {
+    var runCount = function () {
+      var target = parseInt(counter.getAttribute("data-count"), 10) || 0;
+      var suffix = counter.getAttribute("data-suffix") || "";
+      if (reduceMotion) { counter.textContent = target + suffix; return; }
+      var start = null, dur = 1400;
+      var step = function (ts) {
+        if (start === null) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+        counter.textContent = Math.round(eased * target) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    var countObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { runCount(); countObs.disconnect(); }
+      });
+    }, { threshold: 0.6 });
+    countObs.observe(counter);
+  }
+
+  /* ---- Hero parallax (subtle, rAF-throttled) ---- */
+  var heroContent = document.querySelector(".hero-content");
+  var heroBg = document.querySelector(".hero-bg");
+  if (heroContent && !reduceMotion) {
+    var ticking = false;
+    var parallax = function () {
+      var y = window.scrollY;
+      if (y < window.innerHeight) {
+        heroContent.style.transform = "translateY(" + y * 0.18 + "px)";
+        heroContent.style.opacity = String(Math.max(1 - y / 650, 0));
+        if (heroBg) heroBg.style.transform = "scale(1.05) translateY(" + y * 0.06 + "px)";
+      }
+      ticking = false;
+    };
+    window.addEventListener("scroll", function () {
+      if (!ticking) { requestAnimationFrame(parallax); ticking = true; }
+    }, { passive: true });
   }
 
   /* ---- Reservation form validation ---- */
