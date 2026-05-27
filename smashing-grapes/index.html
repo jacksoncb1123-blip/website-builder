@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Smashing Grapes — an upscale kitchen & wine bar in Columbia, MD. Where the vine meets the harvest in harmony. Global cuisine, handmade pastas, premium meats, and an extensive global wine list." />
+  <meta name="theme-color" content="#0d0a0b" />
+  <title>Smashing Grapes — Kitchen &amp; Wine Bar · Columbia, MD</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="preload">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- scroll progress + grain + custom cursor -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header" id="header">
+    <div class="container nav-inner">
+      <a href="#home" class="brand" data-cursor aria-label="Smashing Grapes home">
+        <span class="brand-name">Smashing&nbsp;Grapes</span>
+        <span class="brand-sub">Kitchen &amp; Wine Bar</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav-list" id="nav-list">
+          <li><a href="#home" data-cursor>Home</a></li>
+          <li><a href="#menu" data-cursor>Our Menu</a></li>
+          <li><a href="#wine" data-cursor>Wine &amp; Bar</a></li>
+          <li><a href="#brunch" data-cursor>Sunday Brunch</a></li>
+          <li><a href="#events" data-cursor>Private Events</a></li>
+          <li><a href="#music" data-cursor>Live Music</a></li>
+          <li><a href="#specials" data-cursor>Weekly Specials</a></li>
+          <li><a href="#club" data-cursor>Wine Club</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#reservations" class="btn btn-ghost-gold" data-cursor>Reserve</a>
+        <a href="#order" class="btn btn-gold shimmer" data-cursor>Order Online</a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-list">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================================
+         CINEMATIC HERO — Grape → Pour → Glass → Regions
+         (scroll-scrubbed canvas; ~5 screens tall)
+         ============================================ -->
+    <section class="cinema" id="home">
+      <div class="cinema-sticky">
+        <canvas id="grape-canvas"></canvas>
+
+        <!-- Scene captions, swapped by scroll phase -->
+        <div class="cinema-copy">
+          <div class="cap cap-1" data-cap="grapes">
+            <p class="kicker">Smashing Grapes</p>
+            <h1 class="cinema-title">Where the Vine Meets<br />the Harvest in Harmony</h1>
+            <p class="cinema-sub">An upscale kitchen &amp; wine bar in Columbia, Maryland.</p>
+          </div>
+          <div class="cap cap-2" data-cap="pour">
+            <h2 class="cinema-title">From crush<br />to crystal.</h2>
+          </div>
+          <div class="cap cap-3" data-cap="regions">
+            <p class="kicker">A Global Cellar</p>
+            <h2 class="cinema-title">One Glass.<br />Six Terroirs.</h2>
+          </div>
+        </div>
+
+        <!-- Region showcase cards (revealed in scene 3) -->
+        <div class="region-stage" id="region-stage" aria-hidden="true">
+          <article class="region-card" data-wine="138,18,42" style="--i:0">
+            <span class="region-flag">🇪🇸</span>
+            <h3>Spain</h3>
+            <p class="region-grape">Tempranillo &amp; Garnacha</p>
+            <p class="region-note">Bold and earthy with dark cherry.</p>
+          </article>
+          <article class="region-card" data-wine="92,12,30" style="--i:1">
+            <span class="region-flag">🇦🇷</span>
+            <h3>Argentina</h3>
+            <p class="region-grape">Malbec · Mendoza</p>
+            <p class="region-note">Velvety with blackberry &amp; plum.</p>
+          </article>
+          <article class="region-card" data-wine="222,196,120" style="--i:2">
+            <span class="region-flag">🇩🇪</span>
+            <h3>Germany</h3>
+            <p class="region-grape">Riesling</p>
+            <p class="region-note">Crisp &amp; floral, bright acidity, stone fruit.</p>
+          </article>
+          <article class="region-card" data-wine="120,16,34" style="--i:3">
+            <span class="region-flag">🇺🇸</span>
+            <h3>California</h3>
+            <p class="region-grape">Cabernet &amp; Pinot Noir</p>
+            <p class="region-note">Rich, full-bodied, sun-ripened.</p>
+          </article>
+          <article class="region-card" data-wine="214,182,132" style="--i:4">
+            <span class="region-flag">🇿🇦</span>
+            <h3>South Africa</h3>
+            <p class="region-grape">Chenin Blanc &amp; Pinotage</p>
+            <p class="region-note">Vibrant and mineral-driven.</p>
+          </article>
+          <article class="region-card" data-wine="196,84,96" style="--i:5">
+            <span class="region-flag">🇲🇩</span>
+            <h3>Maryland &amp; Virginia</h3>
+            <p class="region-grape">Locally Sourced</p>
+            <p class="region-note">Celebrating regional terroir.</p>
+          </article>
+        </div>
+
+        <div class="scroll-hint" id="scroll-hint"><span>Scroll</span><i></i></div>
+      </div>
+    </section>
+
+    <!-- ===== Intro / About ===== -->
+    <section class="section intro" id="about">
+      <div class="container intro-grid">
+        <div class="reveal">
+          <p class="eyebrow">The Philosophy</p>
+          <h2 class="section-title">A table set where<br />old world meets new.</h2>
+        </div>
+        <div class="intro-copy reveal" data-delay="1">
+          <p>Smashing Grapes is an upscale kitchen and wine bar built on a simple idea — that great food and great wine belong together, in a room worth lingering in. Our menu travels the globe with a Mediterranean heart: handmade pastas, artisan pizzas, fresh seafood, and premium cuts.</p>
+          <p>The cellar spans Spain, Argentina, Germany, California, and South Africa, with local Maryland &amp; Virginia pours celebrating our own terroir. Chic yet comfortable — like dining in a vineyard.</p>
+          <div class="rating">
+            <span class="stars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
+            <span class="rating-text">4.6 / 5 · 1,500+ Google reviews</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Menu ===== -->
+    <section class="section menu" id="menu">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow center">Our Menu</p>
+          <h2 class="section-title center">Signature Dishes</h2>
+          <p class="section-lead">Handmade pastas, artisan pizzas, fresh seafood, and premium meats — Wagyu, lamb, and sea bass — plus charcuterie and in-house desserts.</p>
+        </div>
+        <div class="menu-grid">
+          <article class="dish tilt reveal" data-cursor><div class="dish-body"><h3>Lobster Ravioli</h3><p>Delicate pasta pockets, sweet lobster, saffron cream.</p></div><span class="dish-price">$28</span></article>
+          <article class="dish tilt reveal" data-cursor data-delay="1"><div class="dish-body"><h3>Short Rib Pappardelle</h3><p>Slow-braised short rib, ribbons of fresh pasta, red wine jus.</p></div><span class="dish-price">$35</span></article>
+          <article class="dish tilt reveal" data-cursor data-delay="2"><div class="dish-body"><h3>Penne Crab Vodka</h3><p>Maryland crab, blush vodka sauce, chili &amp; basil.</p></div><span class="dish-price">$35</span></article>
+          <article class="dish tilt reveal" data-cursor><div class="dish-body"><h3>Grilled Ribeye</h3><p>Premium cut, herb butter, charred seasonal vegetables.</p></div><span class="dish-price">$46</span></article>
+          <article class="dish tilt reveal" data-cursor data-delay="1"><div class="dish-body"><h3>Chilean Sea Bass</h3><p>Pan-seared, citrus beurre blanc, micro herbs.</p></div><span class="dish-price">$44</span></article>
+          <article class="dish tilt reveal" data-cursor data-delay="2"><div class="dish-body"><h3>Wagyu Burger</h3><p>Aged cheddar, truffle aioli, brioche, hand-cut fries.</p></div><span class="dish-price">$24</span></article>
+          <article class="dish tilt reveal" data-cursor><div class="dish-body"><h3>Chesapeake Pizza</h3><p>Wood-fired, crab, old bay cream, mozzarella.</p></div><span class="dish-price">$24</span></article>
+          <article class="dish dish-cta reveal" data-delay="1"><div class="dish-body"><h3>Charcuterie &amp; More</h3><p>Curated boards, in-house desserts, and seasonal features.</p></div><a href="#order" class="btn btn-ghost-gold" data-cursor>See Full Menu</a></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Wine & Bar ===== -->
+    <section class="section wine" id="wine">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow center">Wine &amp; Bar</p>
+          <h2 class="section-title center">The Pour List</h2>
+        </div>
+        <div class="wine-grid">
+          <article class="bar-card reveal" data-cursor>
+            <h3>Wine Flights</h3>
+            <p class="bar-feature">Somm's Pick <span>$30</span></p>
+            <p>A guided journey across regions, hand-selected by our sommelier.</p>
+          </article>
+          <article class="bar-card reveal" data-cursor data-delay="1">
+            <h3>Craft Cocktails</h3>
+            <ul class="bar-list">
+              <li>Prickly Pom</li><li>Lavender French 75</li><li>Golden Hour</li>
+            </ul>
+          </article>
+          <article class="bar-card reveal" data-cursor data-delay="2">
+            <h3>Zero-Proof &amp; Espresso</h3>
+            <p>House mocktails crafted with the same care, plus a full espresso bar for the perfect finish.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Sunday Brunch ===== -->
+    <section class="section brunch" id="brunch">
+      <div class="container brunch-grid">
+        <div class="reveal">
+          <p class="eyebrow">Sunday Brunch · from 10AM</p>
+          <h2 class="section-title">Slow mornings,<br />poured generously.</h2>
+          <p class="brunch-intro">Brunch cocktails from <strong>$6</strong>. The perfect reason to gather.</p>
+        </div>
+        <ul class="brunch-list reveal" data-delay="1">
+          <li><span>Eggs Chesapeake</span><span class="dots"></span><span class="price">$28</span></li>
+          <li><span>Short Rib Hash</span><span class="dots"></span><span class="price">$24</span></li>
+          <li><span>French Toast</span><span class="dots"></span><span class="price">$22</span></li>
+          <li><span>Brunch Cocktails</span><span class="dots"></span><span class="price">from $6</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Private Events + Live Music (split) ===== -->
+    <section class="section split" id="events">
+      <div class="container split-grid">
+        <article class="panel reveal" data-cursor>
+          <p class="eyebrow">Private Events</p>
+          <h2 class="panel-title">Gather in style.</h2>
+          <p>Two elegant private rooms, each seating up to <strong>12 guests</strong> — combine them for larger celebrations. Ideal for dinners, tastings, and corporate evenings.</p>
+          <p class="panel-meta">Valet · Thu–Sat 4–11PM &amp; Sun 4–10PM</p>
+          <a href="#reservations" class="btn btn-ghost-gold" data-cursor>Inquire</a>
+        </article>
+        <article class="panel panel-music reveal" id="music" data-cursor data-delay="1">
+          <p class="eyebrow">Live Music</p>
+          <h2 class="panel-title">Every Friday night.</h2>
+          <p>Live music sets the tempo as the cellar opens and the room glows. Come for dinner, stay for the encore.</p>
+          <a href="#reservations" class="btn btn-ghost-gold" data-cursor>Reserve Friday</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Weekly Specials ===== -->
+    <section class="section specials" id="specials">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow center">Weekly Specials</p>
+          <h2 class="section-title center">Something new on the vine.</h2>
+          <p class="section-lead">Rotating chef features and bottle deals throughout the week — ask your server, or follow along for the latest pours and plates.</p>
+        </div>
+        <div class="reveal" data-delay="1" style="text-align:center">
+          <a href="#order" class="btn btn-gold shimmer btn-lg" data-cursor>This Week's Specials</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Wine Club ===== -->
+    <section class="section club" id="club">
+      <div class="container club-inner reveal">
+        <p class="eyebrow center">The Uncorked Collective</p>
+        <h2 class="section-title center">Join the Wine Club.</h2>
+        <p class="section-lead">Members receive curated bottle selections, first access to tastings and winemaker dinners, and special pricing across the cellar.</p>
+        <div class="club-cta">
+          <a href="#reservations" class="btn btn-gold shimmer btn-lg" data-cursor>Become a Member</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Reservations + Order ===== -->
+    <section class="section reservations" id="reservations">
+      <div class="container res-grid">
+        <article class="res-card reveal" data-cursor>
+          <p class="eyebrow">Reservations</p>
+          <h2 class="panel-title">Book your table.</h2>
+          <p>Reserve in seconds through OpenTable. Walk-ins welcome at the bar.</p>
+          <a href="https://www.opentable.com" target="_blank" rel="noopener" class="btn btn-gold shimmer btn-lg" data-cursor>Reserve on OpenTable</a>
+        </article>
+        <article class="res-card reveal" id="order" data-cursor data-delay="1">
+          <p class="eyebrow">Order Online</p>
+          <h2 class="panel-title">Dine in, or take us home.</h2>
+          <p>Order your favorites for pickup. The full kitchen, to go.</p>
+          <a href="#order" class="btn btn-ghost-gold btn-lg" data-cursor>Start an Order</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- back to top -->
+  <button class="to-top" id="to-top" aria-label="Back to top" data-cursor>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer" id="contact">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand-name footer-logo">Smashing Grapes</span>
+        <p class="footer-tag">Where the vine meets the harvest in harmony.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <address>
+          6200 Valencia Lane, Suite C125<br />
+          Columbia, MD 21044<br />
+          <a href="tel:+14439172795" data-cursor>(443) 917-2795</a>
+        </address>
+        <p class="footer-valet">Valet · Thu–Sat 4–11PM · Sun 4–10PM</p>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <ul class="footer-hours">
+          <li><span>Mon – Thu</span><span>11:30AM – 11PM</span></li>
+          <li><span>Friday</span><span>11:30AM – 1:30AM</span></li>
+          <li><span>Saturday</span><span>11AM – 1:30AM</span></li>
+          <li><span>Sunday</span><span>10AM – 11PM</span></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Reserve &amp; Order</h4>
+        <a href="https://www.opentable.com" target="_blank" rel="noopener" class="footer-link" data-cursor>OpenTable Reservations →</a>
+        <a href="#order" class="footer-link" data-cursor>Order Online →</a>
+        <a href="#club" class="footer-link" data-cursor>Wine Club →</a>
+      </div>
+    </div>
+    <div class="container footer-base">
+      <p>© <span id="year"></span> Smashing Grapes · Columbia, MD</p>
+      <p class="footer-fine">Sun brunch from 10AM · Live music every Friday</p>
+    </div>
+  </footer>
+
+  <script src="js/hero.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

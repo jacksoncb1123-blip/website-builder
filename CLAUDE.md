@@ -64,6 +64,18 @@ Sticky header state, mobile nav toggle, button ripple, scroll-spy nav
 highlighting, reveal-on-scroll, "8+ bays" count-up, hero parallax, back-to-top,
 and client-side booking-form validation.
 
+## Additional sites in this repo
+
+- `smashing-grapes/` — a separate standalone site for "Smashing Grapes," an
+  upscale kitchen & wine bar in Columbia, MD. Dark burgundy / matte black /
+  aged gold luxury aesthetic (Playfair Display + Inter/Cormorant). Its
+  centerpiece is a scroll-scrubbed `<canvas>` hero in `smashing-grapes/js/hero.js`
+  (grapes crush → juice pours → crystal glass fills → wine regions showcase,
+  with the wine color shifting on region hover). Interactions
+  (`smashing-grapes/js/script.js`): custom cursor, smooth anchor scroll, scroll
+  progress bar, staggered reveals, 3D card tilt, ripple/shimmer, scroll-spy,
+  grain overlay. Self-contained: `smashing-grapes/index.html` + `css/` + `js/`.
+
 ## Known TODOs / not yet wired
 
 - The booking form validates and shows success, but does **not** send submissions
