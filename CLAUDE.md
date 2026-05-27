@@ -76,6 +76,13 @@ and client-side booking-form validation.
   progress bar, staggered reveals, 3D card tilt, ripple/shimmer, scroll-spy,
   grain overlay. Self-contained: `smashing-grapes/index.html` + `css/` + `js/`.
 
+- `shopify-mullein/` — NOT a website. A content pack for a Shopify store selling
+  "Mullein Leaf Extract Drops" ($24.99, Dawn theme, white/green wellness look):
+  `CONTENT.md` has all page copy (product, Home, About, Shipping/Refund/Contact)
+  plus a step-by-step Dawn setup guide; `dawn-custom.css` has the green-accent
+  theme tweaks. Shopify can't be set up from this environment — these are
+  paste-ready assets for manual admin/CLI setup.
+
 ## Known TODOs / not yet wired
 
 - The booking form validates and shows success, but does **not** send submissions

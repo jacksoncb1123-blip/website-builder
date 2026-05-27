@@ -1,0 +1,86 @@
+/* ============================================================
+   Mullein Leaf Extract Drops — Dawn custom CSS
+   Clean wellness look: white background, forest-green accents.
+
+   HOW TO ADD THIS IN SHOPIFY (Dawn):
+   1. Online Store → Themes → (Dawn) → "..." → Edit code
+   2. Open assets/base.css  (or create assets/custom.css and include it
+      in layout/theme.liquid before </head>:
+        {{ 'custom.css' | asset_url | stylesheet_tag }} )
+   3. Paste this at the bottom and Save.
+
+   Tip: Prefer the theme editor's Color settings for the main palette
+   (Theme settings → Colors). This file is for the extra polish.
+   ============================================================ */
+
+:root {
+  --mullein-green: #2E7D32;
+  --mullein-green-dark: #1B5E20;
+  --mullein-green-tint: #E8F3E9;
+  --mullein-ink: #1A1A1A;
+}
+
+/* Softer, calmer body text color */
+body { color: var(--mullein-ink); }
+
+/* Primary buttons → green with smooth hover */
+.button,
+.shopify-payment-button__button--unbranded {
+  background-color: var(--mullein-green) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  letter-spacing: .02em;
+  transition: background-color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+.button:hover,
+.shopify-payment-button__button--unbranded:hover {
+  background-color: var(--mullein-green-dark) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -10px rgba(27, 94, 32, .6);
+}
+
+/* Secondary / outline buttons */
+.button--secondary {
+  background: transparent !important;
+  color: var(--mullein-green) !important;
+  box-shadow: 0 0 0 1px var(--mullein-green) inset !important;
+}
+.button--secondary:hover {
+  background: var(--mullein-green-tint) !important;
+}
+
+/* Links pick up the green accent */
+a:not(.button) { color: var(--mullein-green); }
+a:not(.button):hover { color: var(--mullein-green-dark); }
+
+/* Price emphasis */
+.price__regular .price-item--regular,
+.price-item--sale {
+  color: var(--mullein-green-dark);
+  font-weight: 600;
+}
+
+/* Generous, airy headings for the minimal feel */
+.h0, .h1, h1 { letter-spacing: -0.01em; line-height: 1.15; }
+
+/* Gentle card lift on product/collection cards */
+.card-wrapper .card { transition: transform .3s ease, box-shadow .3s ease; }
+.card-wrapper:hover .card {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px -24px rgba(0,0,0,.35);
+}
+
+/* Soft green badge accent (e.g., "Sale"/"New") */
+.badge {
+  background-color: var(--mullein-green-tint) !important;
+  color: var(--mullein-green-dark) !important;
+  border: 1px solid rgba(46,125,50,.25);
+}
+
+/* Make the header feel light and clean */
+.header { border-bottom: 1px solid rgba(0,0,0,.06); }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .button, .card-wrapper .card { transition: none !important; }
+}
