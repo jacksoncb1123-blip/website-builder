@@ -325,5 +325,136 @@ Two layers so nothing goes live early:
 
 ---
 
+## 9) PRIVACY POLICY
+
+> Best placed under **Settings → Policies → Privacy policy** (auto-links in footer).
+
+**Page title:** `Privacy Policy`
+
+**Content:**
+```
+PRIVACY POLICY
+
+Last updated: [DATE]
+
+[Your Brand] ("we," "us") respects your privacy. This policy explains what we
+collect, how we use it, and your choices.
+
+INFORMATION WE COLLECT
+• Information you give us: name, email, shipping/billing address, and phone
+  number when you place an order or contact us.
+• Payment information: processed securely by our payment provider (e.g.,
+  Shopify Payments / third-party processors). We do not store full card numbers.
+• Automatic information: device, browser, pages viewed, and similar data
+  collected through cookies and analytics to operate and improve the store.
+
+HOW WE USE INFORMATION
+To process and ship orders, communicate with you about orders and support,
+prevent fraud, comply with the law, improve our store, and — only with your
+consent — send marketing emails (you can unsubscribe anytime).
+
+HOW WE SHARE INFORMATION
+We share data with service providers who help us run the business — our
+e-commerce platform (Shopify), payment processors, and shipping carriers — and
+when required by law. We do not sell your personal information.
+
+COOKIES
+We use cookies for cart functionality, analytics, and (with consent) marketing.
+You can control cookies in your browser settings.
+
+YOUR RIGHTS
+Depending on where you live (e.g., GDPR/EU, CCPA/California), you may request
+access to, correction of, or deletion of your personal information, and opt out
+of marketing or sale/sharing. Contact us at [privacy@yourbrand.com] to exercise
+these rights.
+
+DATA RETENTION
+We keep order records as needed for our business and to meet legal obligations.
+
+CHILDREN
+Our store and products are intended for adults (18+) and are not directed to
+children.
+
+CHANGES
+We may update this policy; the "Last updated" date will reflect changes.
+
+CONTACT
+Questions? Email [privacy@yourbrand.com].
+```
+
+---
+
+## 10) TERMS OF SERVICE
+
+> Best placed under **Settings → Policies → Terms of service** (auto-links in footer).
+
+**Page title:** `Terms of Service`
+
+**Content:**
+```
+TERMS OF SERVICE
+
+Last updated: [DATE]
+
+Welcome to [Your Brand]. By accessing or using our website and purchasing our
+products, you agree to these Terms of Service.
+
+ELIGIBILITY
+You must be at least 18 years old to purchase from this store.
+
+PRODUCTS & PRICING
+We strive for accuracy, but product descriptions, availability, and prices may
+change without notice and may contain errors. We reserve the right to correct
+errors and to cancel orders affected by them.
+
+ORDERS & PAYMENT
+Submitting an order is an offer to purchase. We may accept or decline any order.
+Payment is processed at checkout through our payment provider.
+
+SHIPPING & RISK OF LOSS
+Shipping terms are described in our Shipping Policy. Risk of loss passes to you
+upon delivery to the carrier.
+
+RETURNS & REFUNDS
+Returns and refunds are governed by our Refund Policy.
+
+HEALTH DISCLAIMER
+Our products are dietary supplements, not medicine. Information on this site is
+for general wellness and is not medical advice. Consult a qualified healthcare
+provider before use, especially if you are pregnant, nursing, taking
+medication, or have a medical condition. *These statements have not been
+evaluated by the Food and Drug Administration. This product is not intended to
+diagnose, treat, cure, or prevent any disease.*
+
+INTELLECTUAL PROPERTY
+All content on this site (text, images, logos) is owned by [Your Brand] and may
+not be used without permission.
+
+ACCEPTABLE USE
+You agree not to misuse the site, attempt to disrupt it, or use it for unlawful
+purposes.
+
+DISCLAIMERS & LIMITATION OF LIABILITY
+The site and products are provided "as is" to the fullest extent permitted by
+law. We are not liable for indirect or consequential damages arising from use
+of the site or products, except where prohibited by law.
+
+INDEMNIFICATION
+You agree to indemnify [Your Brand] against claims arising from your misuse of
+the site or violation of these Terms.
+
+GOVERNING LAW
+These Terms are governed by the laws of the State of [STATE], without regard to
+conflict-of-law rules.
+
+CHANGES
+We may update these Terms; continued use after changes means you accept them.
+
+CONTACT
+Questions? Email [support@yourbrand.com].
+```
+
+---
+
 *All bracketed `[...]` values are placeholders — replace with your real brand
-name, email, rates, and timeframes before launch.*
+name, email, rates, state, and timeframes before launch.*
