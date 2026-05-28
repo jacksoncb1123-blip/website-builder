@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --header-h: 76px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-void text-bone font-body antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-bold tracking-tightest text-bone;
+  }
+
+  ::selection {
+    @apply bg-volt text-void;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-carbon;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-steel rounded-full;
+    border: 2px solid theme('colors.carbon');
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-volt-700;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-volt ring-offset-2 ring-offset-void;
+  }
+
+  img {
+    @apply select-none;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-container px-5 sm:px-8 lg:px-12;
+  }
+
+  .btn {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full
+      px-7 py-3.5 text-sm font-semibold tracking-wide transition-all
+      duration-300 ease-out disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-volt text-void hover:shadow-volt-lg hover:-translate-y-0.5
+      active:translate-y-0;
+  }
+
+  .btn-ghost {
+    @apply btn border border-steel/80 text-bone hover:border-volt
+      hover:text-volt;
+  }
+
+  .eyebrow {
+    @apply font-body text-xs font-semibold uppercase tracking-ultrawide
+      text-volt;
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-ash/60 bg-charcoal/70 backdrop-blur-sm;
+  }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4
+      focus:z-[100] focus:rounded-lg focus:bg-volt focus:px-4 focus:py-2
+      focus:font-semibold focus:text-void;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-stroke-volt {
+    -webkit-text-stroke: 1px theme('colors.volt.DEFAULT');
+    color: transparent;
+  }
+  .mask-fade-r {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
