@@ -25,15 +25,25 @@ export default function Policies() {
   const {policies} = useLoaderData<typeof loader>();
 
   return (
-    <div className="policies">
-      <h1>Policies</h1>
-      <div>
+    <div className="container-x py-16">
+      <header className="mb-10">
+        <p className="eyebrow mb-3">Legal</p>
+        <h1 className="text-5xl sm:text-6xl">Policies</h1>
+      </header>
+      <ul className="max-w-2xl divide-y divide-ash/60 border-y border-ash/60">
         {policies.map((policy) => (
-          <fieldset key={policy.id}>
-            <Link to={`/policies/${policy.handle}`}>{policy.title}</Link>
-          </fieldset>
+          <li key={policy.id}>
+            <Link
+              to={`/policies/${policy.handle}`}
+              prefetch="intent"
+              className="flex items-center justify-between py-5 font-display text-xl tracking-tightest text-bone transition-colors hover:text-volt"
+            >
+              {policy.title}
+              <span aria-hidden>→</span>
+            </Link>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }

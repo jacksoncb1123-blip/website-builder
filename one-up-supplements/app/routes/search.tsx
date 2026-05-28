@@ -41,24 +41,29 @@ export default function SearchPage() {
   if (type === 'predictive') return null;
 
   return (
-    <div className="search">
-      <h1>Search</h1>
+    <div className="container-x py-16">
+      <header className="mb-8">
+        <p className="eyebrow mb-3">Find your formula</p>
+        <h1 className="text-5xl sm:text-6xl">Search</h1>
+      </header>
       <SearchForm>
         {({inputRef}) => (
-          <>
+          <div className="flex max-w-xl gap-2">
             <input
               defaultValue={term}
               name="q"
-              placeholder="Search…"
+              placeholder="Search supplements…"
               ref={inputRef}
               type="search"
+              className="min-w-0 flex-1 rounded-full border border-steel/70 bg-charcoal px-5 py-3 text-sm text-bone placeholder:text-fog focus:border-volt focus:outline-none"
             />
-            &nbsp;
-            <button type="submit">Search</button>
-          </>
+            <button type="submit" className="btn-primary shrink-0">
+              Search
+            </button>
+          </div>
         )}
       </SearchForm>
-      {error && <p style={{color: 'red'}}>{error}</p>}
+      {error && <p className="mt-4 text-sm text-red-400">{error}</p>}
       {!term || !result?.total ? (
         <SearchResults.Empty />
       ) : (

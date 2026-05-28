@@ -45,15 +45,19 @@ export default function Policy() {
   const {policy} = useLoaderData<typeof loader>();
 
   return (
-    <div className="policy">
-      <br />
-      <br />
-      <div>
-        <Link to="/policies">← Back to Policies</Link>
-      </div>
-      <br />
-      <h1>{policy.title}</h1>
-      <div dangerouslySetInnerHTML={{__html: policy.body}} />
+    <div className="container-x py-16">
+      <Link
+        to="/policies"
+        prefetch="intent"
+        className="mb-8 inline-flex items-center gap-2 text-sm text-fog hover:text-volt"
+      >
+        ← Back to Policies
+      </Link>
+      <h1 className="mb-10 text-5xl sm:text-6xl">{policy.title}</h1>
+      <div
+        className="max-w-3xl text-sm leading-relaxed text-mist [&_a]:text-volt [&_h2]:mt-8 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:text-bone [&_li]:my-1 [&_p]:my-4 [&_ul]:list-disc [&_ul]:pl-5"
+        dangerouslySetInnerHTML={{__html: policy.body}}
+      />
     </div>
   );
 }

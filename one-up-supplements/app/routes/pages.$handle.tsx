@@ -58,11 +58,15 @@ export default function Page() {
   const {page} = useLoaderData<typeof loader>();
 
   return (
-    <div className="page">
-      <header>
-        <h1>{page.title}</h1>
+    <div className="container-x py-16">
+      <header className="mb-10 max-w-3xl">
+        <p className="eyebrow mb-3">One Up</p>
+        <h1 className="text-balance text-5xl sm:text-6xl">{page.title}</h1>
       </header>
-      <main dangerouslySetInnerHTML={{__html: page.body}} />
+      <main
+        className="max-w-3xl text-sm leading-relaxed text-mist [&_a]:text-volt [&_h2]:mt-8 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:text-bone [&_li]:my-1 [&_p]:my-4 [&_ul]:list-disc [&_ul]:pl-5"
+        dangerouslySetInnerHTML={{__html: page.body}}
+      />
     </div>
   );
 }
