@@ -28,95 +28,27 @@ def font(path, size, axes=None):
 img  = Image.new("RGB", (W, H), BG)
 draw = ImageDraw.Draw(img)
 
-# ============================================================ FAUCET
-# Built on its own RGBA layer so we can drop a soft shadow under it.
-fx = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-fd = ImageDraw.Draw(fx)
+# ============================================================ PRODUCT
+# Faithful chrome illustration of the real faucet extender, rendered separately
+# (tools/make_product.py -> /tmp/product.png), here cropped, scaled and dropped
+# onto the canvas with a soft grounding shadow.
+prod = Image.open("/tmp/product.png").convert("RGBA")
+prod = prod.crop(prod.getbbox())                     # trim transparent margins
+PROD_H = s(424)                                       # target height on canvas
+scale = PROD_H / prod.height
+prod = prod.resize((int(prod.width * scale), PROD_H), Image.LANCZOS)
+px = (W - prod.width) // 2
+py = s(268)                                           # top of product block
 
-def stamp(d, pts, r, color, off=(0, 0)):
-    rr = s(r)
-    ox, oy = s(off[0]), s(off[1])
-    for (x, y) in pts:
-        cx, cy = s(x) + ox, s(y) + oy
-        d.ellipse([cx - rr, cy - rr, cx + rr, cy + rr], fill=color)
-
-# --- centred inverted-U arch path (the rotating arm) ---
-CX = 540
-LX, RX = 460, 620          # leg x positions  (centre 540)
-TOP_Y = 440                # where legs meet the arc
-BOT_Y = 600                # leg bottoms
-R = (RX - LX) / 2          # arc radius = 80
-
-path = []
-step = 0.6
-# left leg (bottom -> top)
-y = BOT_Y
-while y >= TOP_Y:
-    path.append((LX, y)); y -= step
-# semicircular shoulder, 180deg -> 0deg over the top
-t = math.pi
-while t >= 0:
-    path.append((CX + R * math.cos(t), TOP_Y - R * math.sin(t))); t -= step / R
-# right leg (top -> bottom)
-y = TOP_Y
-while y <= BOT_Y:
-    path.append((RX, y)); y += step
-
-# chrome tube: concentric layers dark(edge) -> bright(core)
-LAYERS = [
-    (20, (74, 82, 86),   (0, 0)),
-    (17, (122, 133, 139),(0, 0)),
-    (13, (168, 179, 185),(-1, -1)),
-    (9,  (208, 217, 221),(-2, -3)),
-    (5,  (242, 246, 248),(-3, -4)),
-]
-for r, col, off in LAYERS:
-    stamp(fd, path, r, col + (255,), off)
-
-# --- aerator / spout outlet on the right leg (distinguishes it as a faucet) ---
-aw, ah = 56, 34
-ax, ay = RX, BOT_Y + 4
-for i in range(s(ah)):                      # vertical chrome gradient top(light)->bottom(dark)
-    f = i / max(1, s(ah) - 1)
-    c = tuple(int(225 - f * 150) for _ in range(3))
-    yy = s(ay - ah / 2) + i
-    fd.line([(s(ax - aw / 2), yy), (s(ax + aw / 2), yy)], fill=c + (255,), width=1)
-# rounded chrome cap silhouette + dark base lip
-fd.rounded_rectangle([s(ax - aw / 2), s(ay - ah / 2), s(ax + aw / 2), s(ay + ah / 2)],
-                     radius=s(8), outline=(70, 78, 82, 255), width=s(2))
-fd.line([(s(ax - aw / 2 + 3), s(ay + ah / 2 - 2)), (s(ax + aw / 2 - 3), s(ay + ah / 2 - 2))],
-        fill=(60, 66, 70, 255), width=s(3))
-
-# ---- soft grounding shadow ----
+# soft grounding shadow beneath the product
 sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
 sd = ImageDraw.Draw(sh)
-sd.ellipse([s(LX - 30), s(BOT_Y + 34), s(RX + 50), s(BOT_Y + 78)], fill=(60, 55, 45, 70))
-sh = sh.filter(ImageFilter.GaussianBlur(s(14)))
-img.paste(Image.alpha_composite(Image.new("RGBA", (W, H), (0, 0, 0, 0)), sh), (0, 0), sh)
+scy = py + prod.height - s(24)
+sd.ellipse([W // 2 - s(150), scy, W // 2 + s(110), scy + s(54)], fill=(60, 55, 45, 65))
+sh = sh.filter(ImageFilter.GaussianBlur(s(16)))
+img.paste(sh, (0, 0), sh)
 
-# ---- faint 360 rotation arc (behind, very subtle) ----
-ring = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-rd = ImageDraw.Draw(ring)
-RCX, RCY, RR = 540, 470, 250
-rd.arc([s(RCX - RR), s(RCY - RR), s(RCX + RR), s(RCY + RR)],
-       start=-35, end=215, fill=(168, 196, 178, 255), width=s(5))
-# clean arrowhead at the open end (~ -35 deg) indicating rotation
-a = math.radians(-35)
-tx, ty = RCX + RR * math.cos(a), RCY + RR * math.sin(a)   # tip on the arc
-tang = (math.cos(a - math.pi / 2), math.sin(a - math.pi / 2))  # tangential dir
-rad = (math.cos(a), math.sin(a))                                # radial dir
-L, Wd = 24, 11
-tip  = (tx + tang[0] * L * 0.5,  ty + tang[1] * L * 0.5)
-back = (tx - tang[0] * L * 0.5,  ty - tang[1] * L * 0.5)
-b1 = (back[0] + rad[0] * Wd, back[1] + rad[1] * Wd)
-b2 = (back[0] - rad[0] * Wd, back[1] - rad[1] * Wd)
-rd.polygon([(s(tip[0]), s(tip[1])), (s(b1[0]), s(b1[1])), (s(b2[0]), s(b2[1]))],
-           fill=(168, 196, 178, 255))
-img.paste(ring, (0, 0), ring)
-
-# faucet on top of ring + shadow
-img.paste(fx, (0, 0), fx)
-
+img.paste(prod, (px, py), prod)
 draw = ImageDraw.Draw(img)
 
 # ============================================================ HEADLINE
@@ -134,7 +66,7 @@ badge = "360° Rotating  ·  Anti-Splash  ·  10-sec Install"
 bf = font(DMSANS, 25, [14, 600])
 bw = draw.textlength(badge, font=bf)
 padx, padyh = s(38), s(27)
-cyb = s(772)
+cyb = py + prod.height + s(58)                         # sit just below the product
 x0, x1 = W // 2 - bw // 2 - padx, W // 2 + bw // 2 + padx
 draw.rounded_rectangle([x0, cyb - padyh, x1, cyb + padyh],
                        radius=(cyb + padyh) - (cyb - padyh), fill=GREEN)
