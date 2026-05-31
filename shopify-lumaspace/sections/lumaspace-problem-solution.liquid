@@ -1,0 +1,94 @@
+{%- comment -%} LumaSpace — Problem / Solution (before & after cards + 3 numbered pains) {%- endcomment -%}
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap');
+  .lms-ps{--bg:#0a0a0f;--card:#12121a;--text:#f8fafc;--muted:#a1a1b5;--purple:#7c3aed;--purple-lt:#a78bfa;
+    --amber-lt:#fcd34d;--green:#34d399;--line:rgba(255,255,255,.08);--line-2:rgba(255,255,255,.14);
+    background:var(--bg); color:var(--text); font-family:"Inter",sans-serif;}
+  .lms-ps__wrap{max-width:1180px; margin:0 auto; padding:72px 20px;}
+  .lms-ps__head{text-align:center; max-width:60ch; margin:0 auto 40px;}
+  .lms-ps__eyebrow{font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--amber-lt);}
+  .lms-ps h2{font-family:"Space Grotesk"; font-weight:700; letter-spacing:-.02em; font-size:clamp(26px,6vw,40px); margin:10px 0;}
+  .lms-ps__head p{color:var(--muted); margin:0;}
+  .lms-ps__grid{display:grid; gap:18px;}
+  .lms-ps__card{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:26px;}
+  .lms-ps__card.is-after{border-color:rgba(124,58,237,.45); box-shadow:0 20px 60px -24px rgba(124,58,237,.6);}
+  .lms-ps__tag{display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:600; letter-spacing:.1em;
+    text-transform:uppercase; padding:5px 12px; border-radius:999px; margin-bottom:16px;}
+  .lms-ps__card.is-before .lms-ps__tag{background:rgba(255,255,255,.06); color:var(--muted);}
+  .lms-ps__card.is-after .lms-ps__tag{background:rgba(124,58,237,.18); color:var(--purple-lt);}
+  .lms-ps__card h3{font-family:"Space Grotesk"; font-size:20px; margin:0 0 16px;}
+  .lms-ps__list{list-style:none; margin:0; padding:0; display:grid; gap:14px;}
+  .lms-ps__li{display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:var(--muted);}
+  .lms-ps__num{flex:0 0 26px; width:26px; height:26px; border-radius:50%; display:grid; place-items:center;
+    font-family:"Space Grotesk"; font-weight:700; font-size:13px;}
+  .lms-ps__card.is-before .lms-ps__num{background:rgba(255,255,255,.08); color:var(--text);}
+  .lms-ps__card.is-after .lms-ps__num{background:rgba(52,211,153,.16); color:var(--green);}
+  @media (min-width:840px){ .lms-ps__grid{grid-template-columns:1fr 1fr; gap:24px;} }
+</style>
+<section class="lms-ps">
+  <div class="lms-ps__wrap">
+    <div class="lms-ps__head">
+      <span class="lms-ps__eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.subtext }}</p>
+    </div>
+    <div class="lms-ps__grid">
+      <div class="lms-ps__card is-before">
+        <span class="lms-ps__tag">{{ section.settings.before_tag }}</span>
+        <h3>{{ section.settings.before_title }}</h3>
+        <ul class="lms-ps__list">
+          {%- assign i = 0 -%}
+          {%- for block in section.blocks -%}{%- assign i = i | plus: 1 -%}
+            <li class="lms-ps__li" {{ block.shopify_attributes }}>
+              <span class="lms-ps__num">{{ i }}</span><span>{{ block.settings.problem }}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+      <div class="lms-ps__card is-after">
+        <span class="lms-ps__tag">{{ section.settings.after_tag }}</span>
+        <h3>{{ section.settings.after_title }}</h3>
+        <ul class="lms-ps__list">
+          {%- assign j = 0 -%}
+          {%- for block in section.blocks -%}{%- assign j = j | plus: 1 -%}
+            <li class="lms-ps__li" {{ block.shopify_attributes }}>
+              <span class="lms-ps__num">{{ j }}</span><span>{{ block.settings.solution }}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "LumaSpace Problem/Solution",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why your room feels flat" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "From boring to breathtaking" },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Plain overhead lights kill the vibe. LumaSpace fixes it in one click." },
+    { "type": "text", "id": "before_tag", "label": "Before tag", "default": "Before" },
+    { "type": "text", "id": "before_title", "label": "Before title", "default": "Your room right now" },
+    { "type": "text", "id": "after_tag", "label": "After tag", "default": "After · LumaSpace" },
+    { "type": "text", "id": "after_title", "label": "After title", "default": "Your room tonight" }
+  ],
+  "blocks": [{
+    "type": "pain",
+    "name": "Pain → fix",
+    "settings": [
+      { "type": "text", "id": "problem", "label": "Problem", "default": "Harsh ceiling light that kills the mood" },
+      { "type": "text", "id": "solution", "label": "Solution", "default": "Soft galaxy glow you can dim to any vibe" }
+    ]
+  }],
+  "max_blocks": 5,
+  "presets": [{
+    "name": "LumaSpace Problem/Solution",
+    "blocks": [
+      { "type": "pain", "settings": { "problem": "Harsh ceiling light that kills the mood", "solution": "Soft galaxy glow you can dim to any vibe" } },
+      { "type": "pain", "settings": { "problem": "Looks boring on camera / for content", "solution": "Cinematic, scroll-stopping backdrop in seconds" } },
+      { "type": "pain", "settings": { "problem": "Hard to wind down and fall asleep", "solution": "Whisper-quiet motion + sleep timer to relax" } }
+    ]
+  }]
+}
+{% endschema %}

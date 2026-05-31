@@ -1,0 +1,85 @@
+{%- comment -%} LumaSpace — Reviews (3 cards with star ratings) {%- endcomment -%}
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap');
+  .lms-rev{--bg:#0a0a0f;--card:#12121a;--text:#f8fafc;--muted:#a1a1b5;--purple:#7c3aed;--purple-lt:#a78bfa;
+    --amber:#f59e0b;--amber-lt:#fcd34d;--green:#34d399;--line:rgba(255,255,255,.08);--line-2:rgba(255,255,255,.14);
+    background:var(--bg); color:var(--text); font-family:"Inter",sans-serif;}
+  .lms-rev__wrap{max-width:1180px; margin:0 auto; padding:72px 20px;}
+  .lms-rev__head{text-align:center; max-width:54ch; margin:0 auto 40px;}
+  .lms-rev__eyebrow{font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--amber-lt);}
+  .lms-rev h2{font-family:"Space Grotesk"; font-weight:700; letter-spacing:-.02em; font-size:clamp(26px,6vw,40px); margin:10px 0;}
+  .lms-rev__head p{color:var(--muted); margin:0;}
+  .lms-rev__grid{display:grid; gap:16px; grid-template-columns:1fr;}
+  .lms-rev__card{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:22px;
+    transition:transform .25s ease, border-color .25s;}
+  .lms-rev__card:hover{transform:translateY(-4px); border-color:var(--line-2);}
+  .lms-rev__stars{color:var(--amber); letter-spacing:2px; font-size:14px; margin-bottom:10px;}
+  .lms-rev__text{color:var(--muted); font-size:14.5px; margin:0 0 16px;}
+  .lms-rev__who{display:flex; align-items:center; gap:10px;}
+  .lms-rev__av{width:38px; height:38px; border-radius:50%; display:grid; place-items:center; font-weight:700; font-size:15px;
+    color:#fff; background:linear-gradient(135deg,var(--purple),#6d28d9);}
+  .lms-rev__name{font-weight:600; font-size:14px;}
+  .lms-rev__verified{font-size:11px; color:var(--green); display:inline-flex; align-items:center; gap:4px;}
+  .lms-rev__verified svg{width:12px; height:12px; stroke:currentColor; fill:none; stroke-width:2;}
+  @media (min-width:760px){ .lms-rev__grid{grid-template-columns:1fr 1fr 1fr;} }
+  @media (prefers-reduced-motion:reduce){ .lms-rev__card:hover{transform:none;} }
+</style>
+<section class="lms-rev">
+  <div class="lms-rev__wrap">
+    <div class="lms-rev__head">
+      <span class="lms-rev__eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.subtext }}</p>
+    </div>
+    <div class="lms-rev__grid">
+      {%- for block in section.blocks -%}
+        <article class="lms-rev__card" {{ block.shopify_attributes }}>
+          <div class="lms-rev__stars" aria-label="{{ block.settings.stars }} out of 5 stars">
+            {%- assign s = block.settings.stars | plus: 0 -%}
+            {%- for x in (1..5) -%}{%- if x <= s -%}★{%- else -%}☆{%- endif -%}{%- endfor -%}
+          </div>
+          <p class="lms-rev__text">“{{ block.settings.text }}”</p>
+          <div class="lms-rev__who">
+            <span class="lms-rev__av">{{ block.settings.name | slice: 0 }}</span>
+            <div>
+              <div class="lms-rev__name">{{ block.settings.name }}</div>
+              {%- if block.settings.verified -%}
+                <span class="lms-rev__verified"><svg viewBox="0 0 24 24"><path d="M4 12l4 4 12-12"/></svg> Verified buyer</span>
+              {%- endif -%}
+            </div>
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "LumaSpace Reviews",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "⭐ 4.9/5 from 2,847 reviews" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Loved by 50,000+ dreamers" },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Real words from real customers' rooms." }
+  ],
+  "blocks": [{
+    "type": "review",
+    "name": "Review",
+    "settings": [
+      { "type": "range", "id": "stars", "label": "Stars", "min": 1, "max": 5, "step": 1, "default": 5 },
+      { "type": "textarea", "id": "text", "label": "Review text", "default": "Literally the best money I've spent. My room looks like a TikTok edit now." },
+      { "type": "text", "id": "name", "label": "Name", "default": "Maya R." },
+      { "type": "checkbox", "id": "verified", "label": "Show 'Verified buyer'", "default": true }
+    ]
+  }],
+  "max_blocks": 6,
+  "presets": [{
+    "name": "LumaSpace Reviews",
+    "blocks": [
+      { "type": "review", "settings": { "stars": 5, "text": "Literally the best money I've spent. My room looks like a TikTok edit now. Galaxy mode is unreal on camera.", "name": "Maya R.", "verified": true } },
+      { "type": "review", "settings": { "stars": 5, "text": "Bought it for the sunset mode and stayed for the whisper-quiet motor. I fall asleep to it every night. 10/10.", "name": "Jordan T.", "verified": true } },
+      { "type": "review", "settings": { "stars": 5, "text": "Shipping was fast and the app control is so easy. My friends keep asking where I got it.", "name": "Aisha K.", "verified": true } }
+    ]
+  }]
+}
+{% endschema %}

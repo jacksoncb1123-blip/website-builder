@@ -1,0 +1,122 @@
+{%- comment -%}
+  LumaSpace — Hero (split layout)
+  Self-contained: own CSS + HTML. Brand: dark dreamy, purple/amber, Space Grotesk + Inter.
+{%- endcomment -%}
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+  .lms-hero {
+    --bg:#0a0a0f; --card:#12121a; --purple:#7c3aed; --purple-lt:#a78bfa;
+    --amber:#f59e0b; --amber-lt:#fcd34d; --text:#f8fafc; --muted:#a1a1b5;
+    --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.14);
+    background:var(--bg); color:var(--text);
+    font-family:"Inter",system-ui,sans-serif; position:relative; overflow:hidden; isolation:isolate;
+  }
+  .lms-hero::before{
+    content:""; position:absolute; inset:-20% -10%; z-index:0;
+    background:
+      radial-gradient(40% 50% at 18% 22%, rgba(124,58,237,.55), transparent 60%),
+      radial-gradient(45% 55% at 82% 26%, rgba(37,99,235,.45), transparent 60%),
+      radial-gradient(60% 60% at 50% 92%, rgba(124,58,237,.22), transparent 60%),
+      linear-gradient(180deg,#150f2e 0%,#0b1024 45%,#0a0a0f 100%);
+    background-size:200% 200%; animation:lmsGrad 16s ease-in-out infinite;
+  }
+  @keyframes lmsGrad{0%,100%{background-position:0% 0%,100% 0%,50% 100%,0 0}50%{background-position:30% 40%,70% 30%,40% 60%,0 0}}
+  .lms-hero__wrap{position:relative; z-index:1; max-width:1180px; margin:0 auto; padding:64px 20px 72px;
+    display:grid; gap:36px; align-items:center;}
+  .lms-hero__eyebrow{display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:600;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--amber-lt);}
+  .lms-hero__rating{display:inline-flex; align-items:center; gap:10px; margin:14px 0 16px;
+    background:rgba(255,255,255,.05); border:1px solid var(--line); padding:7px 14px; border-radius:999px; font-size:13px;}
+  .lms-hero__stars{color:var(--amber); letter-spacing:2px;}
+  .lms-hero h1{font-family:"Space Grotesk",sans-serif; font-weight:700; line-height:1.06; letter-spacing:-.02em;
+    font-size:clamp(34px,8vw,60px); margin:0 0 14px;}
+  .lms-hero h1 .g{background:linear-gradient(100deg,var(--purple-lt),var(--amber-lt));
+    -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .lms-hero__sub{font-size:clamp(15px,4.2vw,19px); color:var(--muted); max-width:46ch; margin:0 0 26px;}
+  .lms-hero__cta{display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    padding:16px 28px; border-radius:999px; font-weight:700; font-size:16px; color:#fff; text-decoration:none;
+    background:linear-gradient(135deg,var(--purple),#6d28d9);
+    box-shadow:0 12px 30px -10px rgba(124,58,237,.7); transition:transform .2s,box-shadow .25s,filter .2s;}
+  .lms-hero__cta:hover{transform:translateY(-2px); filter:brightness(1.06); box-shadow:0 18px 40px -10px rgba(124,58,237,.85);}
+  .lms-hero__trustrow{display:flex; gap:18px; flex-wrap:wrap; margin-top:22px; color:var(--muted); font-size:13px;}
+  .lms-hero__trustrow span{display:inline-flex; align-items:center; gap:7px;}
+  .lms-hero__trustrow svg{width:16px; height:16px; stroke:var(--amber-lt); fill:none; stroke-width:1.8;}
+  .lms-hero__media{position:relative; max-width:480px; width:100%; margin:0 auto;}
+  .lms-hero__imgwrap{aspect-ratio:1; border-radius:22px; overflow:hidden; border:1px solid var(--line-2);
+    box-shadow:0 20px 60px -20px rgba(124,58,237,.5);
+    background:radial-gradient(60% 55% at 50% 35%, rgba(167,139,250,.4), transparent 60%),
+      conic-gradient(from 200deg at 50% 60%, #4c1d95,#1e3a8a,#5b21b6,#7c3aed,#4c1d95);}
+  .lms-hero__imgwrap img{width:100%; height:100%; object-fit:cover; display:block;}
+  .lms-hero__price{position:absolute; right:-8px; bottom:18px; background:rgba(18,18,26,.94);
+    border:1px solid var(--line-2); border-radius:16px; padding:14px 18px; text-align:center;
+    box-shadow:0 16px 40px -16px #000;}
+  .lms-hero__price .now{font-family:"Space Grotesk"; font-size:26px; font-weight:700; color:var(--amber-lt); line-height:1;}
+  .lms-hero__price .was{color:var(--muted); text-decoration:line-through; font-size:13px;}
+  .lms-hero__price small{display:block; color:var(--muted); font-size:11px; margin-top:4px;}
+  @media (min-width:920px){ .lms-hero__wrap{grid-template-columns:1.05fr .95fr; gap:48px;} }
+  @media (prefers-reduced-motion:reduce){ .lms-hero::before{animation:none;} .lms-hero__cta:hover{transform:none;} }
+</style>
+
+<section class="lms-hero">
+  <div class="lms-hero__wrap">
+    <div class="lms-hero__copy">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="lms-hero__eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      <div class="lms-hero__rating">
+        <span class="lms-hero__stars" aria-hidden="true">★★★★★</span>
+        <span>{{ section.settings.rating_text }}</span>
+      </div>
+      <h1>{{ section.settings.headline }}</h1>
+      <p class="lms-hero__sub">{{ section.settings.subheadline }}</p>
+      <a class="lms-hero__cta" href="{{ section.settings.button_url | default: routes.all_products_collection_url }}">
+        {{ section.settings.button_label }}
+      </a>
+      <div class="lms-hero__trustrow">
+        <span><svg viewBox="0 0 24 24"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/></svg> {{ section.settings.trust_1 }}</span>
+        <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> {{ section.settings.trust_2 }}</span>
+        <span><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg> {{ section.settings.trust_3 }}</span>
+      </div>
+    </div>
+    <div class="lms-hero__media">
+      <div class="lms-hero__imgwrap">
+        {%- if section.settings.image != blank -%}
+          <img src="{{ section.settings.image | image_url: width: 900 }}"
+               alt="{{ section.settings.image.alt | default: section.settings.headline | escape }}"
+               width="900" height="900" loading="eager">
+        {%- endif -%}
+      </div>
+      <div class="lms-hero__price">
+        <span class="now">{{ section.settings.price_now }}</span>
+        <span class="was">{{ section.settings.price_was }}</span>
+        <small>{{ section.settings.price_note }}</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "LumaSpace Hero",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "As seen on TikTok · #LumaSpace" },
+    { "type": "text", "id": "rating_text", "label": "Rating text", "default": "4.9/5 · 2,847 reviews" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "Transform Any Room in Seconds" },
+    { "type": "textarea", "id": "subheadline", "label": "Subheadline", "default": "The galaxy projector taking over TikTok — see why 50,000+ customers are obsessed with their private night sky." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Get Yours Now — 50% Off Today" },
+    { "type": "url", "id": "button_url", "label": "Button link (product page)" },
+    { "type": "image_picker", "id": "image", "label": "Product image" },
+    { "type": "text", "id": "price_now", "label": "Sale price (display)", "default": "$39.99" },
+    { "type": "text", "id": "price_was", "label": "Compare-at (display)", "default": "$79.99" },
+    { "type": "text", "id": "price_note", "label": "Price note", "default": "50% OFF TODAY" },
+    { "type": "header", "content": "Trust row" },
+    { "type": "text", "id": "trust_1", "label": "Trust 1", "default": "Free shipping" },
+    { "type": "text", "id": "trust_2", "label": "Trust 2", "default": "Ships in 2–3 days" },
+    { "type": "text", "id": "trust_3", "label": "Trust 3", "default": "30-day guarantee" }
+  ],
+  "presets": [{ "name": "LumaSpace Hero" }]
+}
+{% endschema %}

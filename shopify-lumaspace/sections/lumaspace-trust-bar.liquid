@@ -1,0 +1,66 @@
+{%- comment -%} LumaSpace — Trust bar (5 horizontal icons) {%- endcomment -%}
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600&display=swap');
+  .lms-trust{--bg:#0a0a0f;--text:#f8fafc;--muted:#a1a1b5;--purple-lt:#a78bfa;--line:rgba(255,255,255,.08);
+    background:var(--bg); color:var(--text); font-family:"Inter",sans-serif; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .lms-trust__wrap{max-width:1180px; margin:0 auto; padding:26px 20px; display:grid; gap:18px;
+    grid-template-columns:repeat(2,1fr);}
+  .lms-trust__item{display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px;}
+  .lms-trust__item svg{width:26px; height:26px; stroke:var(--purple-lt); fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round;}
+  .lms-trust__item b{font-family:"Space Grotesk"; font-size:14px; font-weight:600;}
+  .lms-trust__item span{color:var(--muted); font-size:12px;}
+  @media (min-width:760px){ .lms-trust__wrap{grid-template-columns:repeat(5,1fr); padding:30px 20px;} }
+</style>
+<section class="lms-trust">
+  <div class="lms-trust__wrap">
+    {%- for block in section.blocks -%}
+      <div class="lms-trust__item" {{ block.shopify_attributes }}>
+        {%- case block.settings.icon -%}
+          {%- when 'rotate' -%}<svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M21 3v6h-6"/></svg>
+          {%- when 'color' -%}<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg>
+          {%- when 'quiet' -%}<svg viewBox="0 0 24 24"><path d="M3 10v4h4l5 5V5L7 10H3z"/><path d="M16 9a3 3 0 0 1 0 6"/></svg>
+          {%- when 'usb' -%}<svg viewBox="0 0 24 24"><path d="M9 7V4h6v3"/><rect x="7" y="7" width="10" height="13" rx="2"/></svg>
+          {%- when 'ship' -%}<svg viewBox="0 0 24 24"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/></svg>
+          {%- when 'shield' -%}<svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
+          {%- else -%}<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+        {%- endcase -%}
+        <b>{{ block.settings.title }}</b>
+        <span>{{ block.settings.text }}</span>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "LumaSpace Trust Bar",
+  "tag": "section",
+  "blocks": [{
+    "type": "item",
+    "name": "Trust item",
+    "settings": [
+      { "type": "select", "id": "icon", "label": "Icon", "default": "rotate",
+        "options": [
+          {"value":"rotate","label":"360° rotation"},
+          {"value":"color","label":"Color modes"},
+          {"value":"quiet","label":"Whisper-quiet"},
+          {"value":"usb","label":"USB power"},
+          {"value":"ship","label":"Shipping"},
+          {"value":"shield","label":"Guarantee"}
+        ] },
+      { "type": "text", "id": "title", "label": "Title", "default": "360° Rotation" },
+      { "type": "text", "id": "text", "label": "Subtext", "default": "Full-room coverage" }
+    ]
+  }],
+  "max_blocks": 6,
+  "presets": [{
+    "name": "LumaSpace Trust Bar",
+    "blocks": [
+      { "type": "item", "settings": { "icon": "rotate", "title": "360° Rotation", "text": "Full-room coverage" } },
+      { "type": "item", "settings": { "icon": "color", "title": "14 Color Modes", "text": "Set any vibe" } },
+      { "type": "item", "settings": { "icon": "quiet", "title": "Whisper-Quiet", "text": "Under 25dB" } },
+      { "type": "item", "settings": { "icon": "usb", "title": "USB Powered", "text": "Plug & glow" } },
+      { "type": "item", "settings": { "icon": "shield", "title": "30-Day Guarantee", "text": "Risk-free" } }
+    ]
+  }]
+}
+{% endschema %}

@@ -1,0 +1,143 @@
+{
+  "sections": {
+    "hero": {
+      "type": "lumaspace-hero",
+      "settings": {
+        "eyebrow": "As seen on TikTok · #LumaSpace",
+        "rating_text": "4.9/5 · 2,847 reviews",
+        "headline": "Transform Any Room in Seconds",
+        "subheadline": "The galaxy projector taking over TikTok — see why 50,000+ customers are obsessed with their private night sky.",
+        "button_label": "Get Yours Now — 50% Off Today",
+        "button_url": "__PRODUCT_URL__",
+        "price_now": "$39.99",
+        "price_was": "$79.99",
+        "price_note": "50% OFF TODAY",
+        "trust_1": "Free shipping",
+        "trust_2": "Ships in 2–3 days",
+        "trust_3": "30-day guarantee"
+      }
+    },
+    "trust_bar": {
+      "type": "lumaspace-trust-bar",
+      "blocks": {
+        "t1": { "type": "item", "settings": { "icon": "rotate", "title": "360° Rotation", "text": "Full-room coverage" } },
+        "t2": { "type": "item", "settings": { "icon": "color", "title": "14 Color Modes", "text": "Set any vibe" } },
+        "t3": { "type": "item", "settings": { "icon": "quiet", "title": "Whisper-Quiet", "text": "Under 25dB" } },
+        "t4": { "type": "item", "settings": { "icon": "usb", "title": "USB Powered", "text": "Plug & glow" } },
+        "t5": { "type": "item", "settings": { "icon": "shield", "title": "30-Day Guarantee", "text": "Risk-free" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4", "t5"]
+    },
+    "problem_solution": {
+      "type": "lumaspace-problem-solution",
+      "settings": {
+        "eyebrow": "Why your room feels flat",
+        "heading": "From boring to breathtaking",
+        "subtext": "Plain overhead lights kill the vibe. LumaSpace fixes it in one click.",
+        "before_tag": "Before",
+        "before_title": "Your room right now",
+        "after_tag": "After · LumaSpace",
+        "after_title": "Your room tonight"
+      },
+      "blocks": {
+        "p1": { "type": "pain", "settings": { "problem": "Harsh ceiling light that kills the mood", "solution": "Soft galaxy glow you can dim to any vibe" } },
+        "p2": { "type": "pain", "settings": { "problem": "Looks boring on camera / for content", "solution": "Cinematic, scroll-stopping backdrop in seconds" } },
+        "p3": { "type": "pain", "settings": { "problem": "Hard to wind down and fall asleep", "solution": "Whisper-quiet motion + sleep timer to relax" } }
+      },
+      "block_order": ["p1", "p2", "p3"]
+    },
+    "features": {
+      "type": "lumaspace-features",
+      "settings": {
+        "eyebrow": "Why it sells out",
+        "heading": "Premium features, dorm-friendly price",
+        "subtext": "Engineered to look incredible on camera and feel calming in person."
+      },
+      "blocks": {
+        "f1": { "type": "feature", "settings": { "icon": "rotate", "title": "360° rotating galaxy", "text": "A motorized head sweeps stars across every wall and the ceiling." } },
+        "f2": { "type": "feature", "settings": { "icon": "color", "title": "14 color modes", "text": "Galaxy, sunset, aurora, ocean and more — set the exact vibe." } },
+        "f3": { "type": "feature", "settings": { "icon": "quiet", "title": "Whisper-quiet motor", "text": "Under 25dB, so it never interrupts sleep or filming." } },
+        "f4": { "type": "feature", "settings": { "icon": "usb", "title": "USB powered", "text": "Plug into any charger, laptop or power bank. No batteries." } },
+        "f5": { "type": "feature", "settings": { "icon": "remote", "title": "Remote & app control", "text": "Adjust brightness, speed and color from bed. Sleep timer built in." } },
+        "f6": { "type": "feature", "settings": { "icon": "music", "title": "Music-reactive sync", "text": "Built-in mic pulses the stars to your music. Instant party mode." } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4", "f5", "f6"]
+    },
+    "how_it_works": {
+      "type": "lumaspace-how-it-works",
+      "settings": {
+        "eyebrow": "Set up in 60 seconds",
+        "heading": "How it works",
+        "subtext": "No tools, no app required to start. Plug in and you're glowing."
+      },
+      "blocks": {
+        "s1": { "type": "step", "settings": { "title": "Plug it in", "text": "Connect the USB cable to any charger or power bank." } },
+        "s2": { "type": "step", "settings": { "title": "Pick your vibe", "text": "Tap the remote to choose galaxy, sunset, aurora or ocean." } },
+        "s3": { "type": "step", "settings": { "title": "Aim & rotate", "text": "Tilt the head and turn on 360° motion to fill the room." } },
+        "s4": { "type": "step", "settings": { "title": "Vibe out", "text": "Dim the lights, hit record, or drift off with the sleep timer." } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"]
+    },
+    "reviews": {
+      "type": "lumaspace-reviews",
+      "settings": {
+        "eyebrow": "⭐ 4.9/5 from 2,847 reviews",
+        "heading": "Loved by 50,000+ dreamers",
+        "subtext": "Real words from real customers' rooms."
+      },
+      "blocks": {
+        "r1": { "type": "review", "settings": { "stars": 5, "text": "Literally the best money I've spent. My room looks like a TikTok edit now. Galaxy mode is unreal on camera.", "name": "Maya R.", "verified": true } },
+        "r2": { "type": "review", "settings": { "stars": 5, "text": "Bought it for the sunset mode and stayed for the whisper-quiet motor. I fall asleep to it every night. 10/10.", "name": "Jordan T.", "verified": true } },
+        "r3": { "type": "review", "settings": { "stars": 5, "text": "Shipping was fast and the app control is so easy. My friends keep asking where I got it.", "name": "Aisha K.", "verified": true } }
+      },
+      "block_order": ["r1", "r2", "r3"]
+    },
+    "bundle": {
+      "type": "lumaspace-bundle",
+      "settings": {
+        "badge": "BEST VALUE",
+        "eyebrow": "Most popular",
+        "heading": "Get the 2-Pack & save more",
+        "subtext": "One for your room, one for a gift. Buy 1 Get 1 50% off — the deal everyone grabs.",
+        "price_now": "$59.99",
+        "price_was": "$119.98",
+        "save_text": "You save $59.99 (50% off the 2nd)",
+        "button_label": "Add 2-Pack to Cart",
+        "button_url": "__PRODUCT_URL__"
+      },
+      "blocks": {
+        "b1": { "type": "perk", "settings": { "perk": "2nd projector is 50% off" } },
+        "b2": { "type": "perk", "settings": { "perk": "Free tracked shipping on both" } },
+        "b3": { "type": "perk", "settings": { "perk": "Perfect gift — ships ready" } },
+        "b4": { "type": "perk", "settings": { "perk": "30-day money-back on the bundle" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"]
+    },
+    "faq": {
+      "type": "lumaspace-faq",
+      "settings": {
+        "eyebrow": "Questions?",
+        "heading": "Everything you need to know"
+      },
+      "blocks": {
+        "q1": { "type": "qa", "settings": { "question": "How does it connect and power on?", "answer": "<p>It's USB powered — just plug it into any phone charger, laptop, or power bank with the included cable. Control it with the included remote or the free app (iOS &amp; Android).</p>" } },
+        "q2": { "type": "qa", "settings": { "question": "How fast is shipping?", "answer": "<p>Free tracked shipping on every order. Most orders arrive in <strong>2–3 business days</strong>, and you'll get a tracking link by email the moment it ships.</p>" } },
+        "q3": { "type": "qa", "settings": { "question": "Is it quiet enough to sleep with?", "answer": "<p>Yes. The motor runs under 25dB — quieter than a whisper. There's also a static (no-rotation) mode and a sleep timer.</p>" } },
+        "q4": { "type": "qa", "settings": { "question": "What if I don't love it?", "answer": "<p>You're covered by our <strong>30-day money-back guarantee</strong>. If it's not your vibe, send it back for a full refund.</p>" } },
+        "q5": { "type": "qa", "settings": { "question": "How big a room can it fill?", "answer": "<p>It comfortably covers rooms up to ~430 sq ft (40 m²) — bedrooms, dorms, living rooms and ceilings. Tilt the head to aim it.</p>" } },
+        "q6": { "type": "qa", "settings": { "question": "Is the Buy 1 Get 1 50% off deal real?", "answer": "<p>Yep — add 2 to your cart and the second is automatically 50% off. Most people grab a second as a gift.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"]
+    }
+  },
+  "order": [
+    "hero",
+    "trust_bar",
+    "problem_solution",
+    "features",
+    "how_it_works",
+    "reviews",
+    "bundle",
+    "faq"
+  ]
+}
