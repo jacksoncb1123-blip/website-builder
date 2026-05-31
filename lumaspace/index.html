@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0a0f" />
+<title>LumaSpace — Galaxy Projector | Transform Any Room in Seconds</title>
+<meta name="description" content="The galaxy projector taking over TikTok. 360° rotation, 14 color modes, whisper-quiet. 50,000+ obsessed customers. Free shipping, ships in 2–3 days, 30-day money-back guarantee." />
+
+<!-- Open Graph / social preview -->
+<meta property="og:title" content="LumaSpace — Transform Any Room in Seconds" />
+<meta property="og:description" content="The galaxy projector taking over TikTok. See why 50,000+ customers are obsessed. 50% off today." />
+<meta property="og:type" content="product" />
+
+<!-- Preconnect + Google Fonts (Space Grotesk headings, Inter body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  /* ============================================================
+     LumaSpace — single-file dropshipping store
+     Pure HTML/CSS/JS. Mobile-first. No frameworks, no libraries.
+     ============================================================ */
+
+  :root {
+    /* Brand tokens */
+    --bg:        #0a0a0f;   /* near-black background */
+    --card:      #12121a;   /* card backgrounds */
+    --card-2:    #181825;   /* raised card */
+    --purple:    #7c3aed;   /* primary accent */
+    --purple-lt: #a78bfa;
+    --amber:     #f59e0b;   /* secondary accent */
+    --amber-lt:  #fcd34d;
+    --text:      #f8fafc;   /* off-white */
+    --muted:     #a1a1b5;   /* secondary text */
+    --line:      rgba(255,255,255,.08);
+    --line-2:    rgba(255,255,255,.14);
+    --green:     #34d399;
+
+    --radius:    18px;
+    --radius-sm: 12px;
+    --maxw:      1120px;
+    --shadow:    0 20px 60px -20px rgba(124,58,237,.45);
+    --ease:      cubic-bezier(.22,.61,.36,1);
+
+    --banner-h:  40px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .display {
+    font-family: "Space Grotesk", "Inter", sans-serif;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin: 0 0 .5em;
+    font-weight: 700;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  button { font-family: inherit; cursor: pointer; }
+
+  ::selection { background: var(--purple); color: #fff; }
+
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--amber-lt);
+  }
+
+  .section { padding: 72px 0; position: relative; }
+  .section h2 { font-size: clamp(28px, 6vw, 44px); }
+  .section .lead { color: var(--muted); max-width: 56ch; margin: 0 auto; }
+  .center { text-align: center; }
+
+  /* Visually-hidden but screen-reader accessible */
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  .skip-link {
+    position: fixed; left: 12px; top: -60px; z-index: 200;
+    background: var(--purple); color: #fff; padding: 10px 16px; border-radius: 10px;
+    transition: top .2s var(--ease);
+  }
+  .skip-link:focus { top: 12px; }
+
+  :focus-visible { outline: 2px solid var(--amber-lt); outline-offset: 3px; border-radius: 6px; }
+
+  /* ---------- Sticky urgency banner ---------- */
+  .banner {
+    position: sticky; top: 0; z-index: 60;
+    height: var(--banner-h);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    font-size: clamp(11px, 3.2vw, 13.5px); font-weight: 600; letter-spacing: .01em;
+    color: #1a1205;
+    background: linear-gradient(90deg, var(--amber), var(--amber-lt), var(--amber));
+    background-size: 200% 100%;
+    animation: bannerSlide 6s linear infinite;
+    padding: 0 12px;
+  }
+  .banner b { font-weight: 700; }
+  @keyframes bannerSlide { to { background-position: -200% 0; } }
+  @media (prefers-reduced-motion: reduce) { .banner { animation: none; } }
+
+  /* ---------- Header / nav ---------- */
+  header.nav {
+    position: sticky; top: var(--banner-h); z-index: 55;
+    backdrop-filter: blur(14px);
+    background: rgba(10,10,15,.55);
+    border-bottom: 1px solid transparent;
+    transition: background .3s var(--ease), border-color .3s var(--ease);
+  }
+  header.nav.scrolled { background: rgba(10,10,15,.9); border-bottom-color: var(--line); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: "Space Grotesk"; font-weight: 700; font-size: 19px; }
+  .brand .dot {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--purple-lt), var(--purple) 55%, #1e1b4b 100%);
+    box-shadow: 0 0 14px var(--purple);
+  }
+  .nav-links { display: none; gap: 28px; font-size: 14px; color: var(--muted); }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--purple); color: #fff; border: 0;
+    padding: 9px 16px; border-radius: 999px; font-size: 13px; font-weight: 600;
+    transition: transform .2s var(--ease), box-shadow .2s var(--ease), background .2s;
+  }
+  .nav-cta:hover { background: #8b4ff0; box-shadow: 0 8px 24px -8px var(--purple); }
+  @media (min-width: 860px){ .nav-links { display: flex; } }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    --pad: 16px 26px;
+    position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: var(--pad); border: 0; border-radius: 999px;
+    font-weight: 700; font-size: 16px; color: #fff;
+    background: linear-gradient(135deg, var(--purple) 0%, #6d28d9 100%);
+    box-shadow: 0 12px 30px -10px rgba(124,58,237,.7);
+    transition: transform .2s var(--ease), box-shadow .25s var(--ease), filter .2s;
+    overflow: hidden; white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -10px rgba(124,58,237,.85); filter: brightness(1.06); }
+  .btn:active { transform: translateY(0); }
+  .btn.amber { background: linear-gradient(135deg, var(--amber) 0%, #d97706 100%); color: #1a1205; box-shadow: 0 12px 30px -10px rgba(245,158,11,.7); }
+  .btn.block { width: 100%; }
+  .btn .shine {
+    position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%);
+    transform: translateX(-120%);
+  }
+  .btn:hover .shine { animation: shine 1s var(--ease); }
+  @keyframes shine { to { transform: translateX(120%); } }
+  @media (prefers-reduced-motion: reduce){
+    .btn:hover{ transform:none; } .btn .shine{ display:none; }
+  }
+
+  .btn-sub { font-size: 12px; color: var(--muted); margin-top: 10px; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative; min-height: 92vh;
+    display: flex; align-items: center;
+    padding: 56px 0 72px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  /* Animated purple → deep blue → black gradient */
+  .hero::before {
+    content: ""; position: absolute; inset: -20% -10%; z-index: -2;
+    background:
+      radial-gradient(40% 50% at 20% 20%, rgba(124,58,237,.55), transparent 60%),
+      radial-gradient(45% 55% at 80% 25%, rgba(37,99,235,.45), transparent 60%),
+      radial-gradient(60% 60% at 50% 90%, rgba(124,58,237,.25), transparent 60%),
+      linear-gradient(180deg, #150f2e 0%, #0b1024 45%, #0a0a0f 100%);
+    background-size: 200% 200%;
+    animation: heroGrad 16s ease-in-out infinite;
+  }
+  @keyframes heroGrad {
+    0%,100% { background-position: 0% 0%, 100% 0%, 50% 100%, 0 0; }
+    50%     { background-position: 30% 40%, 70% 30%, 40% 60%, 0 0; }
+  }
+  @media (prefers-reduced-motion: reduce){ .hero::before{ animation: none; } }
+
+  /* Starfield */
+  .stars { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+  .star { position: absolute; width: 2px; height: 2px; border-radius: 50%; background: #fff; opacity: .7; animation: twinkle 4s ease-in-out infinite; }
+  @keyframes twinkle { 0%,100%{ opacity:.15; } 50%{ opacity:.9; } }
+  @media (prefers-reduced-motion: reduce){ .star{ animation: none; } }
+
+  .hero-grid { display: grid; gap: 36px; align-items: center; }
+  @media (min-width: 920px){ .hero-grid { grid-template-columns: 1.05fr .95fr; gap: 48px; } }
+
+  .hero h1 { font-size: clamp(38px, 9vw, 68px); }
+  .hero h1 .grad {
+    background: linear-gradient(100deg, var(--purple-lt), var(--amber-lt));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero .sub { font-size: clamp(16px, 4.2vw, 20px); color: var(--muted); max-width: 48ch; margin: 18px 0 28px; }
+
+  .hero-rating { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px;
+    background: rgba(255,255,255,.05); border: 1px solid var(--line); padding: 7px 14px; border-radius: 999px; font-size: 13px; }
+  .stars-row { color: var(--amber); letter-spacing: 2px; font-size: 13px; }
+
+  .hero-cta-row { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+  .pay-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; color: var(--muted); font-size: 12.5px; margin-top: 18px; }
+
+  /* Hero product visual */
+  .hero-visual { position: relative; aspect-ratio: 4/5; max-width: 460px; margin: 0 auto; width: 100%; }
+  .orb {
+    position: absolute; inset: 8%;
+    border-radius: 26px;
+    background:
+      radial-gradient(120% 90% at 50% 20%, rgba(167,139,250,.5), transparent 60%),
+      conic-gradient(from 180deg at 50% 60%, #4c1d95, #1e3a8a, #5b21b6, #7c3aed, #4c1d95);
+    box-shadow: var(--shadow), inset 0 0 60px rgba(0,0,0,.5);
+    overflow: hidden;
+    animation: floaty 7s ease-in-out infinite;
+  }
+  .orb::after { /* projected dots */
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      radial-gradient(2px 2px at 20% 30%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 70% 40%, var(--amber-lt), transparent),
+      radial-gradient(2px 2px at 40% 70%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 85% 75%, var(--purple-lt), transparent),
+      radial-gradient(2px 2px at 60% 15%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 30% 85%, #fff, transparent);
+    opacity: .85; animation: spin 22s linear infinite;
+  }
+  @keyframes floaty { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-14px); } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce){ .orb, .orb::after { animation: none; } }
+
+  .float-badge {
+    position: absolute; z-index: 3; right: -6px; bottom: 8%;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(18,18,26,.92); border: 1px solid var(--line-2);
+    padding: 12px 16px; border-radius: 14px; box-shadow: 0 16px 40px -16px #000;
+    font-size: 13px; font-weight: 600;
+    animation: floaty 7s ease-in-out infinite .6s;
+  }
+  .float-badge .big { font-family: "Space Grotesk"; font-size: 20px; color: var(--amber-lt); }
+  .float-badge small { display: block; color: var(--muted); font-weight: 500; font-size: 11px; }
+
+  .tiktok-pill {
+    position: absolute; z-index: 3; left: -4px; top: 6%;
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(18,18,26,.92); border: 1px solid var(--line-2);
+    padding: 9px 13px; border-radius: 999px; font-size: 12.5px; font-weight: 600;
+    animation: floaty 7s ease-in-out infinite .3s;
+  }
+
+  /* ---------- Marquee logos / as seen on ---------- */
+  .seen { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255,255,255,.015); }
+  .seen .row { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; justify-content: center; padding: 22px 0; color: var(--muted); font-size: 13px; }
+  .seen .row b { color: var(--text); }
+
+  /* ---------- Feature bullets ---------- */
+  .features-grid { display: grid; gap: 16px; margin-top: 40px; }
+  @media (min-width: 620px){ .features-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 980px){ .features-grid { grid-template-columns: 1fr 1fr 1fr; } }
+  .feature {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 22px; transition: transform .25s var(--ease), border-color .25s, background .25s;
+  }
+  .feature:hover { transform: translateY(-4px); border-color: var(--line-2); background: var(--card-2); }
+  .feature .ic {
+    width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; margin-bottom: 14px;
+    background: linear-gradient(135deg, rgba(124,58,237,.25), rgba(245,158,11,.15));
+    border: 1px solid var(--line-2); color: var(--purple-lt);
+  }
+  .feature h3 { font-size: 17px; margin-bottom: 6px; }
+  .feature p { color: var(--muted); font-size: 14px; margin: 0; }
+  .icon { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---------- Before / After ---------- */
+  .ba-wrap { max-width: 760px; margin: 36px auto 0; }
+  .ba {
+    position: relative; aspect-ratio: 16/10; border-radius: var(--radius); overflow: hidden;
+    border: 1px solid var(--line-2); box-shadow: var(--shadow); user-select: none; touch-action: pan-y;
+  }
+  .ba .layer { position: absolute; inset: 0; display: grid; place-items: end center; padding-bottom: 16px; }
+  .ba .before { background: linear-gradient(160deg, #15151c, #0c0c12); }
+  .ba .before::before, .ba .after::before {
+    content: ""; position: absolute; inset: 0; opacity: .55;
+  }
+  .ba .before::before { background: radial-gradient(60% 50% at 50% 40%, rgba(255,255,255,.05), transparent 70%); }
+  .ba .after {
+    background:
+      radial-gradient(50% 45% at 30% 30%, rgba(124,58,237,.55), transparent 60%),
+      radial-gradient(45% 45% at 75% 60%, rgba(37,99,235,.5), transparent 60%),
+      linear-gradient(160deg, #1a1140, #0a0a1f);
+    clip-path: inset(0 0 0 50%);
+  }
+  .ba .after::before {
+    background-image:
+      radial-gradient(2px 2px at 20% 30%, #fff, transparent),
+      radial-gradient(2px 2px at 65% 45%, var(--amber-lt), transparent),
+      radial-gradient(2px 2px at 40% 70%, #fff, transparent),
+      radial-gradient(2px 2px at 80% 25%, var(--purple-lt), transparent),
+      radial-gradient(2px 2px at 55% 85%, #fff, transparent);
+    opacity: .9;
+  }
+  .ba .tag {
+    position: relative; z-index: 2; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    background: rgba(0,0,0,.45); padding: 5px 12px; border-radius: 999px; border: 1px solid var(--line-2);
+  }
+  .ba .handle {
+    position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; z-index: 4;
+    background: var(--amber-lt); transform: translateX(-50%); box-shadow: 0 0 16px var(--amber);
+  }
+  .ba .knob {
+    position: absolute; top: 50%; left: 50%; z-index: 5; transform: translate(-50%,-50%);
+    width: 42px; height: 42px; border-radius: 50%; background: var(--amber-lt); color: #1a1205;
+    display: grid; place-items: center; box-shadow: 0 6px 20px rgba(0,0,0,.5); cursor: ew-resize;
+  }
+  .ba input[type=range] {
+    position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; z-index: 6;
+  }
+
+  /* ---------- PRODUCT / buy block ---------- */
+  .buy { background: linear-gradient(180deg, rgba(124,58,237,.06), transparent); }
+  .buy-grid { display: grid; gap: 30px; align-items: start; }
+  @media (min-width: 920px){ .buy-grid { grid-template-columns: 1fr 1fr; gap: 48px; } }
+
+  .gallery .main {
+    aspect-ratio: 1; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line-2);
+    background:
+      radial-gradient(60% 55% at 50% 35%, rgba(167,139,250,.45), transparent 60%),
+      conic-gradient(from 200deg at 50% 60%, #4c1d95, #1e3a8a, #5b21b6, #7c3aed, #4c1d95);
+    position: relative; box-shadow: var(--shadow);
+  }
+  .gallery .main::after {
+    content:""; position:absolute; inset:0;
+    background-image:
+      radial-gradient(2px 2px at 25% 30%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 70% 40%, var(--amber-lt), transparent),
+      radial-gradient(2px 2px at 45% 72%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 82% 70%, var(--purple-lt), transparent),
+      radial-gradient(2px 2px at 60% 18%, #fff, transparent);
+    opacity:.85; animation: spin 26s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce){ .gallery .main::after{ animation:none; } }
+  .thumbs { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-top: 10px; }
+  .thumb { aspect-ratio: 1; border-radius: 10px; border: 1px solid var(--line); cursor: pointer; transition: border-color .2s, transform .2s; }
+  .thumb:hover { transform: translateY(-2px); border-color: var(--line-2); }
+  .thumb.t1 { background: conic-gradient(from 0deg, #7c3aed, #1e3a8a, #7c3aed); }
+  .thumb.t2 { background: conic-gradient(from 90deg, #f59e0b, #7c3aed, #f59e0b); }
+  .thumb.t3 { background: conic-gradient(from 180deg, #2563eb, #4c1d95, #2563eb); }
+  .thumb.t4 { background: conic-gradient(from 270deg, #34d399, #1e3a8a, #34d399); }
+
+  .buy-info .price-row { display: flex; align-items: baseline; gap: 12px; margin: 4px 0 6px; }
+  .price-now { font-family: "Space Grotesk"; font-size: 40px; font-weight: 700; }
+  .price-old { color: var(--muted); text-decoration: line-through; font-size: 20px; }
+  .price-off { background: var(--amber); color: #1a1205; font-weight: 700; font-size: 12px; padding: 4px 9px; border-radius: 8px; }
+
+  .review-inline { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; margin-bottom: 18px; }
+  .review-inline .stars-row { font-size: 14px; }
+
+  .opt-label { font-size: 13px; font-weight: 600; color: var(--muted); margin: 18px 0 8px; display:block; }
+  .swatches { display: flex; gap: 10px; flex-wrap: wrap; }
+  .swatch { width: 40px; height: 40px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; outline-offset: 3px; transition: transform .15s, border-color .15s; position: relative; }
+  .swatch:hover { transform: scale(1.08); }
+  .swatch[aria-pressed="true"] { border-color: var(--text); }
+  .swatch.galaxy { background: conic-gradient(from 0deg, #7c3aed, #1e3a8a, #7c3aed); }
+  .swatch.sunset { background: conic-gradient(from 0deg, #f59e0b, #ef4444, #f59e0b); }
+  .swatch.aurora { background: conic-gradient(from 0deg, #34d399, #2563eb, #34d399); }
+  .swatch.ocean  { background: conic-gradient(from 0deg, #2563eb, #06b6d4, #2563eb); }
+
+  .qty { display: inline-flex; align-items: center; border: 1px solid var(--line-2); border-radius: 999px; overflow: hidden; }
+  .qty button { background: transparent; color: var(--text); border: 0; width: 42px; height: 42px; font-size: 20px; }
+  .qty button:hover { background: rgba(255,255,255,.06); }
+  .qty span { min-width: 38px; text-align: center; font-weight: 700; }
+
+  .countdown {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    background: rgba(245,158,11,.08); border: 1px solid rgba(245,158,11,.3);
+    padding: 14px 16px; border-radius: var(--radius-sm); margin: 22px 0;
+  }
+  .countdown .label { font-size: 13px; font-weight: 600; color: var(--amber-lt); }
+  .clock { display: flex; gap: 8px; }
+  .clock .unit { background: #0a0a0f; border: 1px solid var(--line-2); border-radius: 10px; padding: 6px 10px; text-align: center; min-width: 50px; }
+  .clock .unit b { font-family: "Space Grotesk"; font-size: 22px; display: block; line-height: 1; }
+  .clock .unit small { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+
+  .urgency-line { display: flex; align-items: center; gap: 8px; color: var(--amber-lt); font-size: 13.5px; font-weight: 600; margin-top: 14px; }
+  .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: #ef4444; box-shadow: 0 0 0 0 rgba(239,68,68,.6); animation: pulse 1.8s infinite; }
+  @keyframes pulse { 0%{ box-shadow: 0 0 0 0 rgba(239,68,68,.6);} 70%{ box-shadow: 0 0 0 10px rgba(239,68,68,0);} 100%{ box-shadow:0 0 0 0 rgba(239,68,68,0);} }
+  @media (prefers-reduced-motion: reduce){ .pulse-dot{ animation:none; } }
+
+  .ship-line { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; color: var(--muted); font-size: 13.5px; margin-top: 16px; }
+  .ship-line .it { display: inline-flex; align-items: center; gap: 7px; }
+  .ship-line .it svg { color: var(--green); }
+
+  .trust-badges { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 22px; }
+  .tb {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--muted);
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px;
+  }
+  .tb svg { color: var(--green); }
+
+  .pay-icons { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 14px; }
+  .pay-icons .pi { height: 30px; width: 46px; border-radius: 6px; background: #fff; display: grid; place-items: center; padding: 4px; }
+  .pay-icons .pi svg { height: 100%; width: auto; }
+
+  /* ---------- Stats strip ---------- */
+  .stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin-top: 40px; }
+  @media (min-width: 720px){ .stats { grid-template-columns: repeat(4,1fr); } }
+  .stat { text-align: center; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 12px; }
+  .stat b { font-family: "Space Grotesk"; font-size: clamp(26px,6vw,38px); display: block; background: linear-gradient(120deg, var(--purple-lt), var(--amber-lt)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat span { color: var(--muted); font-size: 13px; }
+
+  /* ---------- Reviews ---------- */
+  .reviews-grid { display: grid; gap: 16px; margin-top: 40px; }
+  @media (min-width: 720px){ .reviews-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 980px){ .reviews-grid { grid-template-columns: 1fr 1fr 1fr; } }
+  .review {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px;
+    transition: transform .25s var(--ease), border-color .25s;
+  }
+  .review:hover { transform: translateY(-4px); border-color: var(--line-2); }
+  .review .photo { aspect-ratio: 16/10; border-radius: 12px; margin-bottom: 14px; border: 1px solid var(--line); position: relative; overflow: hidden; }
+  .review .photo::after { content:""; position:absolute; inset:0;
+    background-image: radial-gradient(2px 2px at 30% 40%, #fff, transparent), radial-gradient(2px 2px at 70% 60%, var(--amber-lt), transparent), radial-gradient(2px 2px at 50% 80%, #fff, transparent); opacity:.8; }
+  .review .p1 { background: radial-gradient(60% 60% at 40% 40%, rgba(124,58,237,.6), transparent), linear-gradient(160deg,#1a1140,#0a0a1f); }
+  .review .p2 { background: radial-gradient(60% 60% at 60% 40%, rgba(245,158,11,.5), transparent), linear-gradient(160deg,#2a1810,#0f0a0a); }
+  .review .p3 { background: radial-gradient(60% 60% at 50% 50%, rgba(37,99,235,.6), transparent), linear-gradient(160deg,#0a1830,#0a0a1f); }
+  .review .head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .review .av { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 14px; color:#fff; }
+  .review .name { font-weight: 600; font-size: 14px; }
+  .review .verified { font-size: 11px; color: var(--green); display: inline-flex; align-items: center; gap: 4px; }
+  .review p { font-size: 14px; color: var(--muted); margin: 8px 0 0; }
+  .review .stars-row { font-size: 13px; }
+
+  /* ---------- FAQ ---------- */
+  .faq-list { max-width: 760px; margin: 36px auto 0; }
+  .faq-item { border: 1px solid var(--line); border-radius: var(--radius-sm); margin-bottom: 12px; background: var(--card); overflow: hidden; }
+  .faq-q {
+    width: 100%; text-align: left; background: transparent; border: 0; color: var(--text);
+    padding: 18px 20px; font-size: 16px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .faq-q:hover { background: rgba(255,255,255,.03); }
+  .faq-q .chev { transition: transform .25s var(--ease); flex-shrink: 0; color: var(--purple-lt); }
+  .faq-item[open] .chev, .faq-q[aria-expanded="true"] .chev { transform: rotate(180deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s var(--ease); }
+  .faq-a .inner { padding: 0 20px 18px; color: var(--muted); font-size: 14.5px; }
+  @media (prefers-reduced-motion: reduce){ .faq-a{ transition:none; } }
+
+  /* ---------- Guarantee CTA band ---------- */
+  .guarantee { text-align: center; }
+  .guarantee .seal {
+    width: 92px; height: 92px; margin: 0 auto 18px; border-radius: 50%;
+    display: grid; place-items: center; color: var(--amber-lt);
+    background: radial-gradient(circle at 50% 35%, rgba(245,158,11,.2), transparent 70%);
+    border: 2px solid rgba(245,158,11,.4);
+  }
+
+  .final-cta { background: linear-gradient(135deg, rgba(124,58,237,.18), rgba(245,158,11,.08)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+  /* ---------- Footer ---------- */
+  footer { padding: 48px 0 120px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+  .foot-grid { display: grid; gap: 24px; }
+  @media (min-width: 720px){ .foot-grid { grid-template-columns: 2fr 1fr 1fr; } }
+  footer a:hover { color: var(--text); }
+  .foot-links { display: grid; gap: 8px; }
+
+  /* ---------- Sticky add-to-cart bar (mobile-first, always visible) ---------- */
+  .sticky-bar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 70;
+    background: rgba(12,12,18,.94); backdrop-filter: blur(14px);
+    border-top: 1px solid var(--line-2);
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    display: flex; align-items: center; gap: 12px;
+    transform: translateY(120%); transition: transform .35s var(--ease);
+  }
+  .sticky-bar.show { transform: translateY(0); }
+  .sticky-bar .info { line-height: 1.2; }
+  .sticky-bar .info b { font-family: "Space Grotesk"; font-size: 18px; }
+  .sticky-bar .info s { color: var(--muted); font-size: 12px; margin-left: 6px; }
+  .sticky-bar .info small { display: block; color: var(--amber-lt); font-size: 11px; font-weight: 600; }
+  .sticky-bar .btn { flex: 1; --pad: 14px 18px; }
+  @media (min-width: 920px){ .sticky-bar .info b { font-size: 20px; } .sticky-bar { gap: 18px; } }
+
+  /* ---------- Live viewers toast ---------- */
+  .viewers {
+    position: fixed; left: 16px; bottom: 92px; z-index: 65;
+    display: flex; align-items: center; gap: 9px;
+    background: rgba(18,18,26,.95); border: 1px solid var(--line-2);
+    padding: 9px 13px; border-radius: 999px; font-size: 12.5px; font-weight: 600;
+    box-shadow: 0 14px 36px -16px #000;
+    opacity: 0; transform: translateY(10px); transition: opacity .4s, transform .4s;
+  }
+  .viewers.show { opacity: 1; transform: translateY(0); }
+  .viewers .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(52,211,153,.6); animation: pulse-g 1.8s infinite; }
+  @keyframes pulse-g { 0%{ box-shadow:0 0 0 0 rgba(52,211,153,.6);} 70%{ box-shadow:0 0 0 8px rgba(52,211,153,0);} 100%{ box-shadow:0 0 0 0 rgba(52,211,153,0);} }
+  @media (prefers-reduced-motion: reduce){ .viewers .dot{ animation:none; } }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce){ .reveal { opacity: 1; transform: none; transition: none; } }
+
+  /* ---------- Checkout modal ---------- */
+  .modal-root { position: fixed; inset: 0; z-index: 120; display: none; }
+  .modal-root.open { display: block; }
+  .modal-backdrop { position: absolute; inset: 0; background: rgba(4,4,8,.72); backdrop-filter: blur(6px); opacity: 0; transition: opacity .3s; }
+  .modal-root.open .modal-backdrop { opacity: 1; }
+  .modal {
+    position: absolute; left: 50%; bottom: 0; transform: translateX(-50%) translateY(100%);
+    width: 100%; max-width: 480px; max-height: 92vh; overflow-y: auto;
+    background: var(--card); border: 1px solid var(--line-2);
+    border-radius: 22px 22px 0 0; padding: 22px 20px calc(22px + env(safe-area-inset-bottom));
+    transition: transform .38s var(--ease);
+  }
+  .modal-root.open .modal { transform: translateX(-50%) translateY(0); }
+  @media (min-width: 540px){
+    .modal { bottom: auto; top: 50%; transform: translate(-50%,-46%) scale(.96); border-radius: 22px; opacity:0; }
+    .modal-root.open .modal { transform: translate(-50%,-50%) scale(1); opacity:1; }
+  }
+  @media (prefers-reduced-motion: reduce){ .modal, .modal-backdrop { transition: none; } }
+
+  .modal h3 { font-size: 22px; }
+  .modal-close { position: absolute; right: 14px; top: 14px; background: rgba(255,255,255,.06); border: 0; color: var(--text); width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; }
+  .modal-close:hover { background: rgba(255,255,255,.12); }
+
+  .steps { display: flex; gap: 6px; margin: 4px 0 20px; }
+  .steps .s { flex: 1; height: 4px; border-radius: 999px; background: var(--line-2); transition: background .3s; }
+  .steps .s.active, .steps .s.done { background: var(--purple); }
+
+  .step-pane { display: none; }
+  .step-pane.active { display: block; animation: fadeIn .3s var(--ease); }
+  @keyframes fadeIn { from{ opacity:0; transform: translateY(8px);} to{ opacity:1; transform:none; } }
+  @media (prefers-reduced-motion: reduce){ .step-pane.active{ animation:none; } }
+
+  .field { margin-bottom: 14px; }
+  .field label { display: block; font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 6px; }
+  .field input, .field select {
+    width: 100%; background: #0a0a0f; border: 1px solid var(--line-2); color: var(--text);
+    padding: 13px 14px; border-radius: 10px; font-size: 15px; font-family: inherit;
+  }
+  .field input:focus, .field select:focus { outline: none; border-color: var(--purple); box-shadow: 0 0 0 3px rgba(124,58,237,.25); }
+  .field .err { color: #fca5a5; font-size: 12px; margin-top: 5px; display: none; }
+  .field.invalid input { border-color: #ef4444; }
+  .field.invalid .err { display: block; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .summary { background: #0a0a0f; border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin-bottom: 18px; }
+  .summary .line { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px; color: var(--muted); }
+  .summary .line.total { color: var(--text); font-weight: 700; font-size: 18px; border-top: 1px solid var(--line); padding-top: 12px; margin-top: 4px; margin-bottom: 0; font-family: "Space Grotesk"; }
+  .summary .line.total b { font-family: "Space Grotesk"; }
+  .pay-method { display: grid; gap: 10px; margin: 4px 0 18px; }
+  .pay-method .pm { display: flex; align-items: center; gap: 12px; border: 1px solid var(--line-2); border-radius: 10px; padding: 13px 14px; cursor: pointer; transition: border-color .2s, background .2s; }
+  .pay-method .pm:hover { border-color: var(--line-2); background: rgba(255,255,255,.03); }
+  .pay-method .pm[aria-pressed="true"] { border-color: var(--purple); background: rgba(124,58,237,.1); }
+  .pay-method .pm .nm { font-weight: 600; font-size: 14px; flex: 1; }
+  .pay-method .pm .pi { height: 26px; width: 40px; background:#fff; border-radius:5px; display:grid; place-items:center; padding:3px; }
+
+  .modal-foot { display: flex; gap: 10px; margin-top: 4px; }
+  .btn.ghost { background: transparent; border: 1px solid var(--line-2); box-shadow: none; color: var(--text); }
+  .btn.ghost:hover { background: rgba(255,255,255,.05); filter: none; }
+  .secure-note { display: flex; align-items: center; justify-content: center; gap: 7px; color: var(--muted); font-size: 12px; margin-top: 14px; }
+
+  .success-check { width: 84px; height: 84px; margin: 8px auto 18px; border-radius: 50%; background: rgba(52,211,153,.12); border: 2px solid var(--green); display: grid; place-items: center; color: var(--green); }
+  .confetti { position: fixed; inset: 0; pointer-events: none; z-index: 130; overflow: hidden; }
+  .confetti i { position: absolute; top: -10px; width: 9px; height: 14px; opacity: .9; animation: drop linear forwards; }
+  @keyframes drop { to { transform: translateY(110vh) rotate(540deg); opacity: 0; } }
+
+  /* ---------- Back to top ---------- */
+  .to-top {
+    position: fixed; right: 16px; bottom: 92px; z-index: 64;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--card-2); border: 1px solid var(--line-2); color: var(--text);
+    display: grid; place-items: center; opacity: 0; pointer-events: none; transform: translateY(10px);
+    transition: opacity .3s, transform .3s, background .2s;
+  }
+  .to-top.show { opacity: 1; pointer-events: auto; transform: none; }
+  .to-top:hover { background: var(--purple); }
+
+  /* spacing so sticky bar never covers footer content */
+  body { padding-bottom: 0; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#buy">Skip to product & buy</a>
+
+<!-- ===== Sticky urgency banner ===== -->
+<div class="banner" role="alert">🔥 LIMITED TIME: Buy 1 Get 1 <b>50% Off</b> — Ends Tonight</div>
+
+<!-- ===== Nav ===== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="LumaSpace home">
+      <span class="dot" aria-hidden="true"></span> LumaSpace
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#buy">Shop</a>
+    </nav>
+    <button class="nav-cta js-checkout" type="button">Get 50% Off</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" aria-label="Introducing LumaSpace galaxy projector">
+    <div class="stars" id="stars" aria-hidden="true"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">As seen on TikTok · #LumaSpace 38M views</span>
+        <div class="hero-rating" style="margin-top:14px">
+          <span class="stars-row" aria-hidden="true">★★★★★</span>
+          <span><b>4.9/5</b> · 2,847 reviews</span>
+        </div>
+        <h1>Transform Any <span class="grad">Room in Seconds</span></h1>
+        <p class="sub">The galaxy projector taking over TikTok — see why <b style="color:var(--text)">50,000+ customers</b> are obsessed with turning their bedroom into a private night sky.</p>
+        <div class="hero-cta-row">
+          <button class="btn js-checkout" type="button">
+            Get Yours Now — 50% Off Today
+            <span class="shine" aria-hidden="true"></span>
+          </button>
+          <a href="#buy" class="btn-sub">↓ Free shipping · Ships in 2–3 days · 30-day money-back</a>
+        </div>
+        <div class="pay-row">
+          <span>Secure checkout</span>
+          <span aria-hidden="true">·</span>
+          <span>Visa · Mastercard · PayPal · Apple&nbsp;Pay</span>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orb"></div>
+        <div class="tiktok-pill">
+          <svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M9 12a4 4 0 1 0 4 4V4c.5 2 2 3.5 4 4"/></svg>
+          Viral on TikTok
+        </div>
+        <div class="float-badge">
+          <span class="stars-row">★</span>
+          <span><span class="big">4.9/5</span><small>from 2,847 reviews</small></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== As seen on ===== -->
+  <section class="seen" aria-label="Featured on">
+    <div class="wrap row">
+      <span>As featured on</span>
+      <b>TikTok</b><b>Instagram</b><b>BuzzFeed</b><b>The&nbsp;Verge</b><b>Cosmopolitan</b>
+    </div>
+  </section>
+
+  <!-- ===== Before / After ===== -->
+  <section class="section center" id="transform" aria-label="Room transformation">
+    <div class="wrap">
+      <span class="eyebrow reveal">The transformation</span>
+      <h2 class="reveal">From plain to portal — drag to see it</h2>
+      <p class="lead reveal">One device. Lights off. Your ceiling becomes a galaxy. Drag the slider to reveal the LumaSpace effect.</p>
+      <div class="ba-wrap reveal">
+        <div class="ba" id="ba">
+          <div class="layer before"><span class="tag">Before</span></div>
+          <div class="layer after" id="baAfter"><span class="tag">After · LumaSpace on</span></div>
+          <div class="handle" id="baHandle"></div>
+          <div class="knob" id="baKnob" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px;stroke:#1a1205"><path d="M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg>
+          </div>
+          <input type="range" min="0" max="100" value="50" id="baRange" aria-label="Reveal room transformation" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Features ===== -->
+  <section class="section" id="features" aria-label="Features">
+    <div class="wrap center">
+      <span class="eyebrow reveal">Why it sells out</span>
+      <h2 class="reveal">Premium features, dorm-friendly price</h2>
+      <p class="lead reveal">Engineered to look incredible on camera and feel calming in person.</p>
+    </div>
+    <div class="wrap">
+      <div class="features-grid">
+        <div class="feature reveal">
+          <div class="ic"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7v5l3 2"/><path d="M21 3v6h-6"/></svg></div>
+          <h3>360° rotating galaxy</h3>
+          <p>A motorized head sweeps stars and nebula across every wall and the ceiling.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="ic"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></div>
+          <h3>14 color modes</h3>
+          <p>Galaxy, sunset, aurora, ocean and more — set the exact vibe for the night.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="ic"><svg class="icon" viewBox="0 0 24 24"><path d="M3 10v4h4l5 5V5L7 10H3z"/><path d="M16 9a3 3 0 0 1 0 6"/></svg></div>
+          <h3>Whisper-quiet motor</h3>
+          <p>Under 25dB — quieter than a whisper, so it never interrupts sleep or videos.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="ic"><svg class="icon" viewBox="0 0 24 24"><path d="M9 7V4h6v3"/><rect x="7" y="7" width="10" height="13" rx="2"/><path d="M12 11v5"/></svg></div>
+          <h3>USB powered</h3>
+          <p>Plug into any phone charger, laptop or power bank. No batteries, no hassle.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="ic"><svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/><circle cx="5" cy="12" r="1.5"/></svg></div>
+          <h3>Remote &amp; app control</h3>
+          <p>Adjust brightness, speed and color from bed — or set a sleep timer.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="ic"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Built to last</h3>
+          <p>Premium matte shell and long-life LEDs rated for 30,000+ hours of glow.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="ic"><svg class="icon" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 9 9"/><path d="M3 12a9 9 0 0 0 9 9 9 9 0 0 0 9-9"/><path d="M12 3v18"/></svg></div>
+          <h3>Music-reactive sync</h3>
+          <p>Built-in mic pulses the stars to your music — instant party or chill mode.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat reveal"><b data-count="50000" data-suffix="+">0</b><span>Happy customers</span></div>
+        <div class="stat reveal"><b data-count="38" data-suffix="M">0</b><span>TikTok views</span></div>
+        <div class="stat reveal"><b data-count="4.9" data-decimals="1">0</b><span>Average rating</span></div>
+        <div class="stat reveal"><b data-count="14">0</b><span>Color modes</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BUY / Product ===== -->
+  <section class="section buy" id="buy" aria-label="Buy LumaSpace">
+    <div class="wrap buy-grid">
+      <!-- Gallery -->
+      <div class="gallery reveal">
+        <div class="main" role="img" aria-label="LumaSpace galaxy projector glowing in a dark bedroom"></div>
+        <div class="thumbs">
+          <button class="thumb t1" aria-label="Galaxy mode"></button>
+          <button class="thumb t2" aria-label="Sunset mode"></button>
+          <button class="thumb t3" aria-label="Ocean mode"></button>
+          <button class="thumb t4" aria-label="Aurora mode"></button>
+        </div>
+        <div class="ship-line">
+          <span class="it"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/></svg> Free shipping</span>
+          <span class="it"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Ships in 2–3 days</span>
+          <span class="it"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z"/><path d="M8 12l3 3 5-6"/></svg> 30-day returns</span>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="buy-info">
+        <span class="eyebrow">LumaSpace Galaxy Projector</span>
+        <h2 style="font-size:clamp(26px,5vw,34px);margin-top:8px">LumaSpace™ Galaxy Projector</h2>
+        <div class="review-inline">
+          <span class="stars-row" aria-hidden="true">★★★★★</span>
+          <span>4.9 · 2,847 verified reviews</span>
+        </div>
+        <div class="price-row">
+          <span class="price-now" id="priceNow">$29.99</span>
+          <span class="price-old">$59.99</span>
+          <span class="price-off">SAVE 50%</span>
+        </div>
+        <p style="color:var(--muted);margin:0 0 4px">Turn any room into a galaxy. The exact projector with 38M+ TikTok views — now half price for the launch.</p>
+
+        <!-- Countdown -->
+        <div class="countdown" aria-live="polite">
+          <span class="label">⏳ Sale ends in</span>
+          <div class="clock" id="clock">
+            <div class="unit"><b id="cd-h">00</b><small>hrs</small></div>
+            <div class="unit"><b id="cd-m">00</b><small>min</small></div>
+            <div class="unit"><b id="cd-s">00</b><small>sec</small></div>
+          </div>
+        </div>
+
+        <!-- Color -->
+        <label class="opt-label" id="colorLabel">Choose your default vibe</label>
+        <div class="swatches" role="group" aria-labelledby="colorLabel">
+          <button class="swatch galaxy" aria-pressed="true" aria-label="Galaxy" data-color="Galaxy"></button>
+          <button class="swatch sunset" aria-pressed="false" aria-label="Sunset" data-color="Sunset"></button>
+          <button class="swatch aurora" aria-pressed="false" aria-label="Aurora" data-color="Aurora"></button>
+          <button class="swatch ocean" aria-pressed="false" aria-label="Ocean" data-color="Ocean"></button>
+        </div>
+
+        <!-- Qty -->
+        <label class="opt-label" id="qtyLabel">Quantity <span style="color:var(--amber-lt)">(BOGO: 2nd is 50% off)</span></label>
+        <div class="qty" role="group" aria-labelledby="qtyLabel">
+          <button type="button" id="qtyMinus" aria-label="Decrease quantity">−</button>
+          <span id="qtyVal" aria-live="polite">1</span>
+          <button type="button" id="qtyPlus" aria-label="Increase quantity">+</button>
+        </div>
+
+        <div style="margin-top:24px">
+          <button class="btn block js-checkout" type="button">
+            Add to Cart — <span id="ctaPrice">$29.99</span>
+            <span class="shine" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <div class="urgency-line">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          <span id="stockLine">Only 17 left at this price — selling fast tonight</span>
+        </div>
+
+        <!-- Trust badges -->
+        <div class="trust-badges">
+          <span class="tb"><svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg> 30-Day Money-Back</span>
+          <span class="tb"><svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Secure SSL Checkout</span>
+          <span class="tb"><svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/></svg> Free Tracked Shipping</span>
+        </div>
+
+        <!-- Payment icons -->
+        <div class="pay-icons" aria-label="Accepted payment methods">
+          <span class="pi" title="Visa"><svg viewBox="0 0 48 16"><text x="0" y="13" font-family="Arial" font-weight="bold" font-size="14" fill="#1a1f71">VISA</text></svg></span>
+          <span class="pi" title="Mastercard"><svg viewBox="0 0 40 24"><circle cx="15" cy="12" r="9" fill="#eb001b"/><circle cx="25" cy="12" r="9" fill="#f79e1b" fill-opacity=".9"/></svg></span>
+          <span class="pi" title="PayPal"><svg viewBox="0 0 60 16"><text x="0" y="13" font-family="Arial" font-weight="bold" font-size="13" fill="#003087">Pay</text><text x="26" y="13" font-family="Arial" font-weight="bold" font-size="13" fill="#009cde">Pal</text></svg></span>
+          <span class="pi" title="Apple Pay"><svg viewBox="0 0 60 16"><text x="0" y="13" font-family="Arial" font-size="13" fill="#000"></text><text x="11" y="13" font-family="Arial" font-weight="bold" font-size="13" fill="#000">Pay</text></svg></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Reviews ===== -->
+  <section class="section" id="reviews" aria-label="Customer reviews">
+    <div class="wrap center">
+      <span class="eyebrow reveal">⭐ 4.9/5 from 2,847 reviews</span>
+      <h2 class="reveal">Loved by 50,000+ dreamers</h2>
+      <p class="lead reveal">Real photos from real customers' rooms.</p>
+    </div>
+    <div class="wrap">
+      <div class="reviews-grid">
+        <article class="review reveal">
+          <div class="photo p1"></div>
+          <div class="head">
+            <span class="av" style="background:#7c3aed">M</span>
+            <div>
+              <div class="name">Maya R.</div>
+              <span class="verified"><svg class="icon" viewBox="0 0 24 24" style="width:12px;height:12px"><path d="M3 12l3 3 5-6"/><path d="M11 12l3 3 7-8"/></svg> Verified buyer</span>
+            </div>
+          </div>
+          <span class="stars-row" aria-label="5 out of 5 stars">★★★★★</span>
+          <p>"Literally the best $30 I've spent. My room looks like a TikTok edit now. The galaxy mode is unreal on camera."</p>
+        </article>
+        <article class="review reveal">
+          <div class="photo p2"></div>
+          <div class="head">
+            <span class="av" style="background:#f59e0b;color:#1a1205">J</span>
+            <div>
+              <div class="name">Jordan T.</div>
+              <span class="verified"><svg class="icon" viewBox="0 0 24 24" style="width:12px;height:12px"><path d="M3 12l3 3 5-6"/><path d="M11 12l3 3 7-8"/></svg> Verified buyer</span>
+            </div>
+          </div>
+          <span class="stars-row" aria-label="5 out of 5 stars">★★★★★</span>
+          <p>"Bought it for the sunset mode and stayed for the whisper-quiet motor. Falls asleep to it every night. 10/10."</p>
+        </article>
+        <article class="review reveal">
+          <div class="photo p3"></div>
+          <div class="head">
+            <span class="av" style="background:#2563eb">A</span>
+            <div>
+              <div class="name">Aisha K.</div>
+              <span class="verified"><svg class="icon" viewBox="0 0 24 24" style="width:12px;height:12px"><path d="M3 12l3 3 5-6"/><path d="M11 12l3 3 7-8"/></svg> Verified buyer</span>
+            </div>
+          </div>
+          <span class="stars-row" aria-label="5 out of 5 stars">★★★★★</span>
+          <p>"Shipping was fast (3 days!) and the app control is so easy. My friends keep asking where I got it."</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section" id="faq" aria-label="Frequently asked questions">
+    <div class="wrap center">
+      <span class="eyebrow reveal">Questions?</span>
+      <h2 class="reveal">Everything you need to know</h2>
+    </div>
+    <div class="wrap">
+      <div class="faq-list" id="faq-list">
+        <!-- items injected to keep markup tidy, but static fallback below -->
+        <div class="faq-item">
+          <h3 style="margin:0"><button class="faq-q" aria-expanded="false">How does it connect / power on?<span class="chev" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+          <div class="faq-a"><div class="inner">It's USB powered — just plug it into any phone charger, laptop, or power bank with the included cable. Control it with the included remote or the free app (iOS &amp; Android).</div></div>
+        </div>
+        <div class="faq-item">
+          <h3 style="margin:0"><button class="faq-q" aria-expanded="false">How fast is shipping?<span class="chev" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+          <div class="faq-a"><div class="inner">Free tracked shipping on every order. Most orders arrive in <b>2–3 business days</b>, and you'll get a tracking link by email the moment it ships.</div></div>
+        </div>
+        <div class="faq-item">
+          <h3 style="margin:0"><button class="faq-q" aria-expanded="false">Is it actually quiet enough to sleep with?<span class="chev" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+          <div class="faq-a"><div class="inner">Yes. The motor runs under 25dB — quieter than a whisper. There's also a static (no-rotation) mode and a sleep timer if you prefer it perfectly still.</div></div>
+        </div>
+        <div class="faq-item">
+          <h3 style="margin:0"><button class="faq-q" aria-expanded="false">What if I don't love it?<span class="chev" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+          <div class="faq-a"><div class="inner">You're covered by our <b>30-day money-back guarantee</b>. If it's not your vibe, send it back for a full refund — no awkward questions.</div></div>
+        </div>
+        <div class="faq-item">
+          <h3 style="margin:0"><button class="faq-q" aria-expanded="false">How big a room can it fill?<span class="chev" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+          <div class="faq-a"><div class="inner">It comfortably covers rooms up to ~430 sq ft (40 m²) — bedrooms, dorms, living rooms and ceilings. Tilt the head to aim the galaxy exactly where you want it.</div></div>
+        </div>
+        <div class="faq-item">
+          <h3 style="margin:0"><button class="faq-q" aria-expanded="false">Is the Buy 1 Get 1 50% off deal real?<span class="chev" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+          <div class="faq-a"><div class="inner">Yep — add 2 to your cart and the second one is automatically 50% off at checkout. Most people grab a second as a gift. Offer ends when the timer hits zero.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Guarantee + final CTA ===== -->
+  <section class="section final-cta guarantee" aria-label="Guarantee and final call to action">
+    <div class="wrap">
+      <div class="seal reveal" aria-hidden="true">
+        <svg class="icon" viewBox="0 0 24 24" style="width:42px;height:42px;stroke-width:1.5"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <h2 class="reveal">Try it risk-free for 30 nights</h2>
+      <p class="lead reveal" style="margin-bottom:26px">If LumaSpace doesn't transform your space, we'll refund every cent. You only risk falling in love with your room.</p>
+      <button class="btn js-checkout reveal" type="button" style="--pad:18px 34px;font-size:18px">
+        Get Yours Now — 50% Off Today
+        <span class="shine" aria-hidden="true"></span>
+      </button>
+      <div class="secure-note" style="margin-top:18px">
+        <svg class="icon" viewBox="0 0 24 24" style="width:15px;height:15px"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        Secure checkout · Free shipping · Ships in 2–3 days
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <a class="brand" href="#top" style="font-size:18px"><span class="dot" aria-hidden="true"></span> LumaSpace</a>
+      <p style="max-width:42ch;margin-top:12px">Premium ambient projectors that turn ordinary rooms into something worth filming. Designed for dreamers.</p>
+      <div class="pay-icons" style="margin-top:14px">
+        <span class="pi" title="Visa"><svg viewBox="0 0 48 16"><text x="0" y="13" font-family="Arial" font-weight="bold" font-size="14" fill="#1a1f71">VISA</text></svg></span>
+        <span class="pi" title="Mastercard"><svg viewBox="0 0 40 24"><circle cx="15" cy="12" r="9" fill="#eb001b"/><circle cx="25" cy="12" r="9" fill="#f79e1b" fill-opacity=".9"/></svg></span>
+        <span class="pi" title="PayPal"><svg viewBox="0 0 60 16"><text x="0" y="13" font-family="Arial" font-weight="bold" font-size="13" fill="#003087">Pay</text><text x="26" y="13" font-family="Arial" font-weight="bold" font-size="13" fill="#009cde">Pal</text></svg></span>
+        <span class="pi" title="Apple Pay"><svg viewBox="0 0 60 16"><text x="11" y="13" font-family="Arial" font-weight="bold" font-size="13" fill="#000">Pay</text></svg></span>
+      </div>
+    </div>
+    <div>
+      <div style="color:var(--text);font-weight:600;margin-bottom:12px">Shop</div>
+      <div class="foot-links">
+        <a href="#buy">Galaxy Projector</a>
+        <a href="#features">Features</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+    <div>
+      <div style="color:var(--text);font-weight:600;margin-bottom:12px">Help</div>
+      <div class="foot-links">
+        <a href="#faq">Shipping &amp; Returns</a>
+        <a href="#">Track my order</a>
+        <a href="#">Contact us</a>
+        <a href="#">30-day guarantee</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:30px;border-top:1px solid var(--line);padding-top:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+    <span>© <span id="year"></span> LumaSpace. All rights reserved.</span>
+    <span>Privacy · Terms · Demo store</span>
+  </div>
+</footer>
+
+<!-- ===== Live viewers ===== -->
+<div class="viewers" id="viewers" role="status" aria-live="polite">
+  <span class="dot" aria-hidden="true"></span>
+  <span><b id="viewCount">63</b> people are viewing this right now</span>
+</div>
+
+<!-- ===== Back to top ===== -->
+<button class="to-top" id="toTop" type="button" aria-label="Back to top">
+  <svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px"><path d="M6 15l6-6 6 6"/></svg>
+</button>
+
+<!-- ===== Sticky add-to-cart bar ===== -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="info">
+    <b id="barPrice">$29.99</b><s>$59.99</s>
+    <small>🔥 BOGO 50% off ends tonight</small>
+  </div>
+  <button class="btn js-checkout" type="button">
+    Add to Cart
+    <span class="shine" aria-hidden="true"></span>
+  </button>
+</div>
+
+<!-- ===== Checkout modal ===== -->
+<div class="modal-root" id="checkout" aria-hidden="true">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+    <button class="modal-close" type="button" data-close aria-label="Close checkout">
+      <svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+
+    <div class="steps" aria-hidden="true">
+      <span class="s active" data-step-dot="1"></span>
+      <span class="s" data-step-dot="2"></span>
+      <span class="s" data-step-dot="3"></span>
+    </div>
+
+    <!-- Step 1: contact + shipping -->
+    <section class="step-pane active" data-step="1">
+      <h3 id="checkoutTitle">Shipping details</h3>
+      <p style="color:var(--muted);margin-top:0;font-size:14px">Step 1 of 3 · Free tracked shipping</p>
+      <div class="field">
+        <label for="ck-email">Email</label>
+        <input id="ck-email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required />
+        <span class="err">Please enter a valid email.</span>
+      </div>
+      <div class="field">
+        <label for="ck-name">Full name</label>
+        <input id="ck-name" type="text" autocomplete="name" placeholder="Alex Morgan" required />
+        <span class="err">Please enter your name.</span>
+      </div>
+      <div class="field">
+        <label for="ck-addr">Address</label>
+        <input id="ck-addr" type="text" autocomplete="street-address" placeholder="123 Dream St" required />
+        <span class="err">Please enter your address.</span>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="ck-city">City</label>
+          <input id="ck-city" type="text" autocomplete="address-level2" placeholder="Los Angeles" required />
+          <span class="err">Required.</span>
+        </div>
+        <div class="field">
+          <label for="ck-zip">ZIP</label>
+          <input id="ck-zip" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="90001" required />
+          <span class="err">Required.</span>
+        </div>
+      </div>
+      <button class="btn block" type="button" data-next="2">Continue to payment</button>
+      <div class="secure-note"><svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Encrypted &amp; secure</div>
+    </section>
+
+    <!-- Step 2: payment -->
+    <section class="step-pane" data-step="2">
+      <h3>Payment</h3>
+      <p style="color:var(--muted);margin-top:0;font-size:14px">Step 2 of 3 · This is a demo — no real charge</p>
+
+      <div class="summary">
+        <div class="line"><span>LumaSpace Galaxy Projector <span id="sumQty">×1</span></span><span id="sumItems">$29.99</span></div>
+        <div class="line" id="sumBogoLine" style="color:var(--green);display:none"><span>BOGO discount</span><span id="sumBogo">−$0.00</span></div>
+        <div class="line"><span>Shipping</span><span style="color:var(--green)">FREE</span></div>
+        <div class="line total"><span>Total</span><b id="sumTotal">$29.99</b></div>
+      </div>
+
+      <div class="pay-method" role="group" aria-label="Payment method">
+        <button class="pm" type="button" aria-pressed="true" data-pay="card">
+          <span class="nm">Credit / Debit card</span>
+          <span class="pi"><svg viewBox="0 0 48 16"><text x="0" y="13" font-family="Arial" font-weight="bold" font-size="14" fill="#1a1f71">VISA</text></svg></span>
+          <span class="pi"><svg viewBox="0 0 40 24"><circle cx="15" cy="12" r="9" fill="#eb001b"/><circle cx="25" cy="12" r="9" fill="#f79e1b" fill-opacity=".9"/></svg></span>
+        </button>
+        <button class="pm" type="button" aria-pressed="false" data-pay="paypal">
+          <span class="nm">PayPal</span>
+          <span class="pi"><svg viewBox="0 0 60 16"><text x="0" y="13" font-family="Arial" font-weight="bold" font-size="13" fill="#003087">Pay</text><text x="26" y="13" font-family="Arial" font-weight="bold" font-size="13" fill="#009cde">Pal</text></svg></span>
+        </button>
+        <button class="pm" type="button" aria-pressed="false" data-pay="apple">
+          <span class="nm">Apple Pay</span>
+          <span class="pi"><svg viewBox="0 0 60 16"><text x="11" y="13" font-family="Arial" font-weight="bold" font-size="13" fill="#000">Pay</text></svg></span>
+        </button>
+      </div>
+
+      <div id="cardFields">
+        <div class="field">
+          <label for="ck-card">Card number</label>
+          <input id="ck-card" type="text" inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="19" />
+          <span class="err">Enter a 16-digit card number.</span>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="ck-exp">Expiry</label>
+            <input id="ck-exp" type="text" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" maxlength="5" />
+            <span class="err">MM/YY</span>
+          </div>
+          <div class="field">
+            <label for="ck-cvc">CVC</label>
+            <input id="ck-cvc" type="text" inputmode="numeric" autocomplete="cc-csc" placeholder="123" maxlength="4" />
+            <span class="err">3–4 digits.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-foot">
+        <button class="btn ghost" type="button" data-prev="1">Back</button>
+        <button class="btn" type="button" data-next="3" style="flex:1.6">Pay <span id="payBtnTotal">$29.99</span></button>
+      </div>
+      <div class="secure-note"><svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg> 30-day money-back guarantee</div>
+    </section>
+
+    <!-- Step 3: success -->
+    <section class="step-pane" data-step="3">
+      <div class="success-check" aria-hidden="true">
+        <svg class="icon" viewBox="0 0 24 24" style="width:44px;height:44px;stroke-width:2"><path d="M4 12l5 5L20 6"/></svg>
+      </div>
+      <h3 class="center" style="text-align:center">Order confirmed! 🎉</h3>
+      <p class="center" style="text-align:center;color:var(--muted)">Thanks <span id="okName">friend</span> — your LumaSpace is on its way. A confirmation was sent to <span id="okEmail" style="color:var(--text)">your email</span>. Ships in 2–3 days.</p>
+      <div class="summary" style="margin-top:18px">
+        <div class="line"><span>Order number</span><span id="okOrder" style="color:var(--text)">#LMS-00000</span></div>
+        <div class="line total"><span>Paid</span><b id="okTotal">$29.99</b></div>
+      </div>
+      <button class="btn block" type="button" data-close>Continue exploring</button>
+      <p class="center" style="text-align:center;font-size:12px;color:var(--muted);margin-top:12px">Demo store — this is a UI prototype, no payment was processed.</p>
+    </section>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $  = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var fmt = function (n) { return "$" + n.toFixed(2); };
+
+  /* ---------- Pricing state ---------- */
+  var UNIT = 29.99;
+  var state = { qty: 1, color: "Galaxy", pay: "card" };
+
+  function totals() {
+    // Buy 1 Get 1: every 2nd unit is 50% off
+    var pairs = Math.floor(state.qty / 2);
+    var singles = state.qty % 2;
+    var subtotal = state.qty * UNIT;
+    var bogo = pairs * (UNIT * 0.5);
+    var total = subtotal - bogo;
+    return { subtotal: subtotal, bogo: bogo, total: total };
+  }
+
+  function syncPrices() {
+    var t = totals();
+    var totalStr = fmt(t.total);
+    var ctaP = $("#ctaPrice"); if (ctaP) ctaP.textContent = totalStr;
+    var barP = $("#barPrice"); if (barP) barP.textContent = totalStr;
+    $("#qtyVal").textContent = state.qty;
+    // checkout summary
+    $("#sumQty").textContent = "×" + state.qty;
+    $("#sumItems").textContent = fmt(t.subtotal);
+    var bogoLine = $("#sumBogoLine");
+    if (t.bogo > 0) { bogoLine.style.display = "flex"; $("#sumBogo").textContent = "−" + fmt(t.bogo); }
+    else { bogoLine.style.display = "none"; }
+    $("#sumTotal").textContent = totalStr;
+    $("#payBtnTotal").textContent = totalStr;
+    $("#okTotal").textContent = totalStr;
+  }
+
+  /* ---------- Starfield ---------- */
+  (function () {
+    var box = $("#stars"); if (!box) return;
+    var n = window.innerWidth < 640 ? 40 : 70;
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < n; i++) {
+      var s = document.createElement("span");
+      s.className = "star";
+      s.style.left = Math.random() * 100 + "%";
+      s.style.top = Math.random() * 100 + "%";
+      var sz = (Math.random() * 1.6 + 1).toFixed(1);
+      s.style.width = sz + "px"; s.style.height = sz + "px";
+      s.style.animationDelay = (Math.random() * 4).toFixed(2) + "s";
+      if (Math.random() > .8) s.style.background = "#fcd34d";
+      frag.appendChild(s);
+    }
+    box.appendChild(frag);
+  })();
+
+  /* ---------- Sticky header ---------- */
+  var nav = $("#nav");
+  function onScrollHeader() { nav.classList.toggle("scrolled", window.scrollY > 12); }
+  onScrollHeader();
+
+  /* ---------- Reveal on scroll ---------- */
+  (function () {
+    var els = $$(".reveal");
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      els.forEach(function (e) { e.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+
+  /* ---------- Count-up stats ---------- */
+  (function () {
+    var nums = $$("[data-count]");
+    if (!nums.length) return;
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      nums.forEach(function (el) { finalize(el); });
+      return;
+    }
+    function finalize(el) {
+      var target = parseFloat(el.getAttribute("data-count"));
+      var dec = parseInt(el.getAttribute("data-decimals") || "0", 10);
+      el.textContent = format(target, dec) + (el.getAttribute("data-suffix") || "");
+    }
+    function format(v, dec) {
+      if (dec > 0) return v.toFixed(dec);
+      return Math.round(v).toLocaleString("en-US");
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target; io.unobserve(el);
+        var target = parseFloat(el.getAttribute("data-count"));
+        var dec = parseInt(el.getAttribute("data-decimals") || "0", 10);
+        var suffix = el.getAttribute("data-suffix") || "";
+        var start = performance.now(), dur = 1400;
+        (function tick(now) {
+          var p = Math.min((now - start) / dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = format(target * eased, dec) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+          else el.textContent = format(target, dec) + suffix;
+        })(start);
+      });
+    }, { threshold: 0.4 });
+    nums.forEach(function (e) { io.observe(e); });
+  })();
+
+  /* ---------- Daily-resetting countdown ---------- */
+  (function () {
+    var h = $("#cd-h"), m = $("#cd-m"), s = $("#cd-s");
+    if (!h) return;
+    function pad(n) { return n < 10 ? "0" + n : "" + n; }
+    function tick() {
+      var now = new Date();
+      var end = new Date(now);
+      end.setHours(24, 0, 0, 0); // next midnight -> resets daily
+      var diff = Math.max(0, end - now);
+      var hrs = Math.floor(diff / 3.6e6);
+      var min = Math.floor((diff % 3.6e6) / 6e4);
+      var sec = Math.floor((diff % 6e4) / 1000);
+      h.textContent = pad(hrs); m.textContent = pad(min); s.textContent = pad(sec);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  /* ---------- Before / After slider ---------- */
+  (function () {
+    var range = $("#baRange"), after = $("#baAfter"), handle = $("#baHandle"), knob = $("#baKnob");
+    if (!range) return;
+    function set(v) {
+      after.style.clipPath = "inset(0 0 0 " + v + "%)";
+      handle.style.left = v + "%";
+      knob.style.left = v + "%";
+    }
+    range.addEventListener("input", function () { set(this.value); });
+    set(range.value);
+  })();
+
+  /* ---------- Quantity ---------- */
+  $("#qtyPlus").addEventListener("click", function () {
+    if (state.qty < 10) { state.qty++; syncPrices(); }
+  });
+  $("#qtyMinus").addEventListener("click", function () {
+    if (state.qty > 1) { state.qty--; syncPrices(); }
+  });
+
+  /* ---------- Color swatches ---------- */
+  $$(".swatch").forEach(function (sw) {
+    sw.addEventListener("click", function () {
+      $$(".swatch").forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+      sw.setAttribute("aria-pressed", "true");
+      state.color = sw.getAttribute("data-color");
+    });
+  });
+
+  /* ---------- Thumbnails swap main gradient ---------- */
+  $$(".thumb").forEach(function (t) {
+    t.addEventListener("click", function () {
+      var main = $(".gallery .main");
+      if (main) main.style.background = getComputedStyle(t).background;
+    });
+  });
+
+  /* ---------- FAQ accordion ---------- */
+  $$(".faq-q").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var open = btn.getAttribute("aria-expanded") === "true";
+      var panel = btn.parentElement.nextElementSibling;
+      btn.setAttribute("aria-expanded", open ? "false" : "true");
+      panel.style.maxHeight = open ? "0" : panel.scrollHeight + "px";
+    });
+  });
+
+  /* ---------- Sticky bar + back-to-top + viewers visibility ---------- */
+  var stickyBar = $("#stickyBar"), toTop = $("#toTop"), viewers = $("#viewers");
+  var heroBottom = 0;
+  function recalc() {
+    var hero = $(".hero");
+    heroBottom = hero ? hero.offsetTop + hero.offsetHeight * 0.6 : 400;
+  }
+  recalc();
+  window.addEventListener("resize", recalc);
+
+  function onScroll() {
+    onScrollHeader();
+    var y = window.scrollY;
+    var show = y > heroBottom;
+    stickyBar.classList.toggle("show", show);
+    toTop.classList.toggle("show", y > 800);
+    viewers.classList.toggle("show", y > 300);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  toTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+  });
+
+  /* ---------- Live viewer counter (gentle wander) ---------- */
+  (function () {
+    var el = $("#viewCount"); if (!el) return;
+    var v = 63;
+    setInterval(function () {
+      v += Math.round((Math.random() - 0.45) * 5);
+      if (v < 41) v = 41; if (v > 98) v = 98;
+      el.textContent = v;
+    }, 3200);
+  })();
+
+  /* ---------- Stock line gentle decrement ---------- */
+  (function () {
+    var el = $("#stockLine"); if (!el) return;
+    var left = 17;
+    setInterval(function () {
+      if (left > 6 && Math.random() > 0.6) {
+        left--;
+        el.textContent = "Only " + left + " left at this price — selling fast tonight";
+      }
+    }, 9000);
+  })();
+
+  /* ============================================================
+     Checkout modal flow
+     ============================================================ */
+  var modal = $("#checkout");
+  var lastFocus = null;
+
+  function openCheckout() {
+    syncPrices();
+    lastFocus = document.activeElement;
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    goStep(1);
+    var first = $("#ck-email"); if (first && window.innerWidth > 540) setTimeout(function(){ first.focus(); }, 350);
+  }
+  function closeCheckout() {
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if (lastFocus) lastFocus.focus();
+  }
+
+  $$(".js-checkout").forEach(function (b) { b.addEventListener("click", openCheckout); });
+  $$("[data-close]").forEach(function (b) { b.addEventListener("click", closeCheckout); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal.classList.contains("open")) closeCheckout();
+  });
+
+  function goStep(n) {
+    $$(".step-pane").forEach(function (p) {
+      p.classList.toggle("active", parseInt(p.getAttribute("data-step"), 10) === n);
+    });
+    $$("[data-step-dot]").forEach(function (d) {
+      var i = parseInt(d.getAttribute("data-step-dot"), 10);
+      d.classList.toggle("active", i === n);
+      d.classList.toggle("done", i < n);
+    });
+    var m = $(".modal"); if (m) m.scrollTop = 0;
+  }
+
+  /* --- validation helpers --- */
+  function markValid(field, ok) {
+    field.classList.toggle("invalid", !ok);
+    return ok;
+  }
+  function fieldOf(input) { return input.closest(".field"); }
+
+  function validateStep1() {
+    var ok = true;
+    var email = $("#ck-email");
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+    ok = markValid(fieldOf(email), emailOk) && ok;
+    ["ck-name", "ck-addr", "ck-city", "ck-zip"].forEach(function (id) {
+      var el = $("#" + id);
+      var v = el.value.trim().length > 0;
+      ok = markValid(fieldOf(el), v) && ok;
+    });
+    return ok;
+  }
+
+  function validateStep2() {
+    if (state.pay !== "card") return true; // wallet methods skip card fields
+    var ok = true;
+    var card = $("#ck-card"), exp = $("#ck-exp"), cvc = $("#ck-cvc");
+    ok = markValid(fieldOf(card), card.value.replace(/\s/g, "").length >= 15) && ok;
+    ok = markValid(fieldOf(exp), /^\d{2}\/\d{2}$/.test(exp.value.trim())) && ok;
+    ok = markValid(fieldOf(cvc), /^\d{3,4}$/.test(cvc.value.trim())) && ok;
+    return ok;
+  }
+
+  /* --- step navigation --- */
+  $$("[data-next]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var target = parseInt(b.getAttribute("data-next"), 10);
+      if (target === 2 && !validateStep1()) { firstInvalid(); return; }
+      if (target === 3) {
+        if (!validateStep2()) { firstInvalid(); return; }
+        finishOrder();
+      }
+      goStep(target);
+    });
+  });
+  $$("[data-prev]").forEach(function (b) {
+    b.addEventListener("click", function () { goStep(parseInt(b.getAttribute("data-prev"), 10)); });
+  });
+  function firstInvalid() {
+    var f = $(".step-pane.active .field.invalid input");
+    if (f) f.focus();
+  }
+
+  /* --- payment method toggle --- */
+  $$(".pm").forEach(function (pm) {
+    pm.addEventListener("click", function () {
+      $$(".pm").forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+      pm.setAttribute("aria-pressed", "true");
+      state.pay = pm.getAttribute("data-pay");
+      $("#cardFields").style.display = state.pay === "card" ? "" : "none";
+    });
+  });
+
+  /* --- card input niceties --- */
+  var cardIn = $("#ck-card");
+  if (cardIn) cardIn.addEventListener("input", function () {
+    var v = this.value.replace(/\D/g, "").slice(0, 16);
+    this.value = v.replace(/(.{4})/g, "$1 ").trim();
+  });
+  var expIn = $("#ck-exp");
+  if (expIn) expIn.addEventListener("input", function () {
+    var v = this.value.replace(/\D/g, "").slice(0, 4);
+    this.value = v.length > 2 ? v.slice(0, 2) + "/" + v.slice(2) : v;
+  });
+
+  /* --- complete order --- */
+  function finishOrder() {
+    var t = totals();
+    $("#okName").textContent = ($("#ck-name").value.trim().split(" ")[0]) || "friend";
+    $("#okEmail").textContent = $("#ck-email").value.trim() || "your email";
+    $("#okOrder").textContent = "#LMS-" + String(Math.floor(10000 + Math.random() * 89999));
+    $("#okTotal").textContent = fmt(t.total);
+    confetti();
+  }
+
+  /* --- tiny confetti --- */
+  function confetti() {
+    if (reduceMotion) return;
+    var colors = ["#7c3aed", "#f59e0b", "#a78bfa", "#fcd34d", "#34d399", "#ffffff"];
+    var box = document.createElement("div");
+    box.className = "confetti";
+    for (var i = 0; i < 80; i++) {
+      var p = document.createElement("i");
+      p.style.left = Math.random() * 100 + "%";
+      p.style.background = colors[i % colors.length];
+      p.style.animationDuration = (Math.random() * 1.5 + 1.6) + "s";
+      p.style.animationDelay = (Math.random() * 0.4) + "s";
+      p.style.transform = "rotate(" + (Math.random() * 360) + "deg)";
+      box.appendChild(p);
+    }
+    document.body.appendChild(box);
+    setTimeout(function () { box.remove(); }, 3600);
+  }
+
+  /* ---------- year + init ---------- */
+  $("#year").textContent = new Date().getFullYear();
+  syncPrices();
+})();
+</script>
+</body>
+</html>
